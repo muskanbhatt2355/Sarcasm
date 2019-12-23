@@ -1,0 +1,40 @@
+{% extends 'game/base.html' %}
+{% load staticfiles %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/rank.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="col-md-2"></div>
+<div class="col-md-8">
+  <h2 id="head" >Leaderboard</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>RANK</th>
+        <th>USERNAME</th>
+        <th>POINTS</th>
+      </tr>
+    </thead>
+{% for user in queryset %}
+
+    <tbody>
+      <tr>
+        <td style="background-color:white;">{{forloop.counter}}</td>
+        <td style="background-color: red; color:white; font-weight: 600;"><span>{{user.username}}</span></td>
+        <td style="background-color:white ">{{user.player.points}}</td>
+      </tr>
+  </tbody>
+
+{%endfor%}
+  </table>
+
+</div>
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();   
+});
+</script>
+
+
+{% endblock %}

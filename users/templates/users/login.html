@@ -1,0 +1,30 @@
+{% extends 'game/base.html' %}
+{% block content %}
+{% load static %}
+
+<div class="background-img" style="background-image: url({% static 'images/logo.svg' %}) !important;"></div>
+<div class="row">
+        <div class="col-md-12 buttons">
+        <!-- a href="{% url 'logout' %}"> <button class="btn btn-outline-info" type="submit">Logout</button></a -->
+        {% if not user.is_authenticated %}
+
+         <button class="btn btn-outline-info" type="submit"><a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}">Login with Facebook</a></bu$
+        {% endif %}
+        <div class="col-md-8">
+                <!-- h1>A warm WELCOME TO SARCASM {{user}}</h1 -->
+        {% if user.is_authenticated %}
+        </div>
+        </div>
+        <div class="row">
+        <div class="col-md-12 buttons">
+        <!-- a href="{% url 'logout' %}"> <button class="btn btn-outline-info" type="submit">Logout</button></a -->
+        <a href="{% url 'play' %}"> <button class="btn btn-outline-info" type="submit">Let's play</button></a>
+</div>
+        {% else %}
+<!--    <a href="{% url 'play' %}"> <button class="btn btn-outline-info" type="submit">Login</button></a>
+                      <button class="btn btn-outline-info" type="submit"><a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}">Continue with $
+-->
+        </div>
+        {% endif %}
+{% endblock %}
+

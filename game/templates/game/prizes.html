@@ -1,0 +1,24 @@
+{% extends 'game/base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/prizes.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="cardContainer">
+      <div class="card"> <img class="cardImage" src="{% static 'images/mi-band.svg' %}"><div class="intext">Mi-Band</div></div>
+      <div class="card"><img class="cardImage" src="{% static 'images/head.svg' %}"><div class="intext">JBL Headphones</div></div>
+      <div class="card"><img class="cardImage" src="{% static 'images/char.svg' %}"><div class="intext">Power Bank</div></div>
+      <div class="card"><img class="cardImage" src="{% static 'images/wifi.svg' %}"><div class="intext">Wifi Router</div></div>
+      <div class="card"><img class="cardImage" src="{% static 'images/pen.svg' %}"><div class="intext">Pendrive</div></div>
+      <div class="card"><img class="cardImage" src="{% static 'images/spea.svg' %}"><div class="intext">JBL Speakers</div></div>
+    </div>
+
+    <div class="imgContainer">
+
+      <img src="{% static "images/mario.svg" %}" id="mario">
+    </div>
+  </div>
+{% endblock %}

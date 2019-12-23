@@ -1,0 +1,43 @@
+{% extends 'game/base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/instructions.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+	<h1 id="head">Instructions</h1>
+	<div class="content row col-md-9 col-sm-9 offset-">
+		<div class="col-md-10 col-sm-10  instlist">
+			<ul class="d-block ">
+                <li>Please read the instructions below carefully!</li>
+                <li>Unless you login with your FB account in the browser you will not be able to play the game </li>
+                <li>Disable the pop-up block </li>
+                <li>SARCasm is an online crypt hunt running for 40+ hours - 9th Aug 7 pm to 11th Aug 7:00 pm</li>
+                <li>You will be redirected to the next question when you type the correct answer to the previous question. </li>
+                <li>Frame your answer with no capital letters, no spaces and no special characters line full stop, comma, dash, etc. Example if your answer is Hostel-8, enter it hostel8 instead of h8, H8, h 8, h-8 and so on. </li>
+                <li>So if your answer isn’t accepted please try out different variants of it before jumping to other possible answers.</li>
+                <li>Each question contains 3 points unless specifically mentioned in question otherwise.</li>
+                <li>Stay attached to your computers for the bonus question. It will come randomly for a limited time and gives you a chance to score high.
+<ul>
+<li>Bonus questions will appear randomly for a small duration within the game. </li>
+<li>You can skip the bonus question by typing skip in the answer section </li>
+<li>Each bonus question carries<b> 4 points</b> giving you a chance to score higher, so stay online 
+</li></ul></li>
+			
+                <li>Keep checking the leaderboard, it will show your rank in the crypt hunt.</li>
+		<li>Visit the forum to get hints which we post periodically according to the time and need.</li>
+		<li>Each question can be answered multiple times, so be liberal with your guesses.</li>
+		<li>Refrain from posting the answers on the forum which can result in the ban of that user. </li>
+		<li>In the interests of the spirit of the competition, avoid solving in groups or giving answers away for love or money. The game will be thrilling to the player the most when played alone. SARCasm can be scathing, but it loses its sting if shared with too many people. :)</li>
+		<li>The desire for fame tempts even the noblest of minds. We at SARC are no exception. Please do like us on our FB page, to stay connected for more awesome events.
+<a href="https://www.facebook.com/SARC.IITB/">https://www.facebook.com/SARC.IITB/<a></li>
+              </ul>
+		</div>
+		<div class="col-md-2 col-sm-2 offset-2">
+			<p class="imagearea"><img src="{% static "images/inst.svg" %}" id="mario"></p>
+		</div>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,10 @@
+#head{
+		color: red;
+text-align: center;	}
+@media only screen and (max-width: 766px){
+
+#head{
+		margin-top: 20%!important;
+text-align: center;	}
+
+}

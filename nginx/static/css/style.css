@@ -1,0 +1,170 @@
+@font-face {
+  font-family: Gilroy-ExtraBold;
+  src: url(Gilroy-ExtraBold.otf);
+}
+@font-face {
+  font-family: Gilroy-Light;
+  src: url(Gilroy-Light.otf);
+}
+
+
+.background-img{
+  /* The image used */
+
+  /* Full height */
+    height: 35%;
+  /* Center and scale the image nicely */
+
+  background-position: center;
+  background-repeat: no-repeat;
+  display:block;
+  margin:auto;
+  margin-top: 12.5%;
+
+}
+
+.btn{
+	background-color: red;
+	width: auto;
+	height: auto;
+	border-radius: 20px;
+	color: #fff
+}
+
+.btn:hover{
+	background-color: #fff5f5;
+	color: red;
+}
+
+body{
+overflow-x:hidden;
+font-family: Gilroy-ExtraBold;
+}
+
+.buttons .btn{
+	font-size:35px;
+	margin:auto;
+        display:block;
+}
+
+
+.navbar{	
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 6vw;
+	height: 100%;
+	box-shadow: 5px 0px 30px  #ff0000;
+	border-radius: 0px 45px 45px 0px;
+	background-color: #ff0000;
+}
+.navbar img{
+	display: block;
+	height:auto; 
+	width: 40%;
+	margin-top: 85%;
+	margin-bottom: 65%;
+	margin-left: auto;
+	margin-right: auto;
+	transition: transform .2s;
+
+}
+
+.navbar .help img{
+        display: block;
+        height:auto; 
+        width: 30%;
+        margin-top: 85%;
+        margin-bottom: 65%;
+        margin-left: auto;
+        margin-right: auto;
+        transition: transform .2s;
+
+}
+
+
+.navbar img:hover {
+	transform: scale(1.3);
+}
+.navbar img:hover + .icons{
+	opacity: 1;
+	color: white;
+}
+
+.vivek {
+	display: inline-block;
+}
+
+.footer {
+	left:5%;
+	position:fixed;
+	transform: translate(77.5vw, 85vh);
+}
+
+.footer img {
+	display: inline-block;
+	height: 57.5px;
+	width: 40.9px;
+	margin: 0.5vw;
+	transition: transform .2s;
+}
+
+
+
+.footer img:hover{
+	transform: scale(1.3);
+}
+a{
+	text-decoration: none!important;
+	color: white;
+}
+.icons{
+	opacity: 0;
+	text-decoration: none;
+	text-align: center;
+	margin-top: -50%;
+	margin-bottom: -45%;
+	font-size: 20px;
+
+}
+@media only screen and (max-width: 750px){
+	.navbar{
+		position: fixed;
+		top: 0px;
+		left: 0px;
+		width: 100%;
+		height: 6vh;
+		border-radius: 0px 0px 15px 15px;
+		z-index:10;
+		box-shadow: 5vh 0vh 4vh #ff0000;
+	}
+	.navbar img {
+		display: inline-block;
+		float: left;
+		height: 4vh;
+		width: 3.5vw;
+		margin-top: 1vh;
+	    margin-bottom: 1vh; 
+	    margin-left: 6.0vw;
+	    margin-right: 6.0vw;
+	}
+	.navbar .help img {
+                display: inline-block;
+                float: left;
+                height: 2.5vh;
+                width: 3.5vw;
+                margin-top: 2vh;
+            margin-bottom: 1vh; 
+            margin-left: 6.0vw;
+            margin-right: 6.0vw;
+        }
+
+
+.navbar img:hover + .icons{
+	opacity: 1;
+	color: white;
+}
+.footer img{
+	display: none;
+}
+}

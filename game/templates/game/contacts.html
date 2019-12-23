@@ -1,0 +1,92 @@
+{% extends 'game/base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/contacts.css' %}">
+<!-- <style>
+  body{
+    background-image: url("{% static 'images/bg1.svg' %}");
+    width: 100%;
+    height: 100%;
+    align-items: center;
+     background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  }
+</style> -->
+{% endblock %}
+
+{% block content %}
+
+  <h1 id="head">Contact Us</h1>
+  <div class="row gone" data-aos="flip-down">
+      <div class="col-sm-3 col-sm-offset-1 col-xs-8 col-xs-offset-1">
+        <figure><div class="textg" data-aos="fade-up">
+          <h3>Ayushraj Mehrotra</h3>
+          <h4>Media & PR</h4>
+          <h4>+91-8209184163</h4>
+        </div>
+        <img class="img-responsive pho on" src="{% static 'images/araj.jpg' %}">
+      </figure>
+      </div>
+
+    <div class="col-sm-3 col-sm-offset-0 col-xs-8 col-xs-offset-1">
+        <figure>
+          <div class="textg">
+          <h3>&ensp;Nishant Kumar</h3>
+          <h4>Media & PR</h4>
+          <h4>+91-8570873599</h4>
+        </div>
+          <img class="img-responsive pho tw" src="{% static 'images/nishant.jpg' %}">
+        </figure>
+      </div>
+      <div class="col-sm-3 col-sm-offset-0 col-xs-8 col-xs-offset-1">
+        <figure>
+          <div class="textg re">
+          <h3>&ensp;Shradha Bansal</h3>
+          <h4>Media & PR</h4>
+          <h4>+91-8559896259</h4>
+          </div>
+            <img class="img-responsive pho th" src="{% static 'images/shradha.jpg' %}">
+        </figure>
+      </div>
+    </div>  
+    <div class="row gone">
+      <div class="col-sm-3 col-sm-offset-3 col-xs-8 col-xs-offset-1">
+        <figure>
+          <div class="textg">
+          <h3>&ensp;Achin Parashar</h3>
+          <h4>Web</h4>
+          <h4>+91-9826882698</h4>
+          </div>
+          <img class="img-responsive pho fo" src="{% static 'images/achin.jpg' %}">
+        </figure>
+      </div>
+      <div class="col-sm-3 col-sm-offset-0 col-xs-8 col-xs-offset-1">
+        <figure>
+          <div class="textg">
+          <h3>&ensp;&ensp;Vittesh Arora</h3>
+          <h4>Web</h4>
+          <h4>+91-9571709499</h4>
+          </div>
+          <img class="img-responsive pho fi" src="{% static 'images/vittesh.jpg' %}">
+        </figure>
+      </div>
+      <!-- <div class="col-sm-3 col-sm-offset-0 col-xs-8 col-xs-offset-1">
+        <figure>
+          <div class="textg">
+          <h3>&ensp;Akhil Ajikumar</h3>
+          <h4>Design</h4>
+          <h4>+91-9447454732</h4>
+          </div>
+          <img class="img-responsive pho si" src="{% static 'images/nishant.jpg' %}">
+        </figure>
+      </div> -->
+    </div>
+    
+    <div class="imgContainer">
+
+      <img src="{% static "images/mariocont.svg" %}" id="mariocont">
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,74 @@
+{% load static %}
+<html>
+<head>	
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123803318-2"></script>
+	<script>
+  	window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-123803318-2');
+	</script>
+
+	<meta property="og:title" content="SARCasm" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://sarcasm.sarc-iitb.org" />
+	<meta property="og:image" content="https://sarcasm.sarc-iitb.org{%static 'images/thumbnail.jpg' %}" />
+	<meta property="og:description" content="Sarcasm. Insti's online crypt hunt." />
+	<meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+	{% block head %}
+	{% endblock %}    
+	<link rel="shortcut icon" href="{%static 'images/fav1.png'%}" />
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+<!--       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+ -->
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+	
+	<title>
+		SARCasm
+	</title>
+</head>
+<body>	
+	<div class="navbar vivek">
+    <a href="{% url 'game-home' %}"><img src="{% static "images/home.svg" %}"><div class="icons">Home</div></a>
+    <a href="{% url 'instructions' %}"><img src="{% static "images/instructions.svg" %}"><div class="icons">Rules</div></a>
+    <a href="{% url 'leaderboard' %}"><img src="{% static "images/leaderboard.svg" %}"><div class="icons">Rank</div></a>
+    <a href="{% url 'forum' %}" target="_blank"><img src="{% static "images/forum.svg" %}"><div class="icons">Forum</div></a>
+    <a href="{% url 'contacts' %}" class="help"><img src="{% static "images/help.svg" %}"><div class="icons">Help</div></a>
+    <a href="{% url 'prize' %}"><img src="{% static "images/trophy.svg" %}"><div class="icons">Prizes</div></a>
+	<a href="{% url 'bonus' %}"><img src="{% static "images/trophy.svg" %}"><div class="icons">Bonus</div></a>
+ 
+  </div>
+
+  <div class="footer vivek">
+    <a href="https://www.facebook.com/SARC.IITB/" target="_blank">
+			{% load static %}
+			<img src="{% static "images/fb.svg" %}"></a>
+    <a href="https://in.linkedin.com/in/sarciitb" target="_blank"><img src="{% static "images/linkedin-sign.svg" %}"></a>
+    <a href="https://www.youtube.com/user/SARCIIT" target="_blank"><img src="{% static "images/youtube.svg" %}"></a>
+  </div>
+	<div>
+		{% if messages %}
+			{% for message in messages %}
+				<div class="alert alert-{{message.tags}}">
+					{{message}}
+				</div>
+			{% endfor %}
+		{% endif %}		
+	</div>
+	{% block content%}
+
+	{% endblock %}
+</body>
+{% block post %}{% endblock %}
+</html>
