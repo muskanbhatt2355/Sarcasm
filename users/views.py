@@ -31,7 +31,8 @@ def register(request):
 						t.points+=3
 					t.save()
 				else:
-					# print("Referral Doesn't Exist")		
+					# print("Referral Doesn't Exist")	
+					pass	
 				messages.success(request, 'Account created for {0}!'.format(username))
 				return redirect('login')
 			else:
