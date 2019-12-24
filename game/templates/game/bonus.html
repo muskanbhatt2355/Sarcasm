@@ -1,2 +1,121 @@
-{% extends "game/base.html" %}
-{% load static %}
+{% extends 'game/base.html' %}
+{% load staticfiles %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/play.css' %}">
+<!--     <script src="{% static 'js/comm.js' %}" ></script>-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+ {% endblock %}
+
+{% block content %}
+<p id="TimerVivek" style = "position:absolute; top:2%; right: 2%; font-size: 35px;"></p>
+<!-- 	<h1>Congratulations! You have logged in. Let's play now</h1>
+ 		<a href="{% url 'logout' %}"> <button class="btn btn-outline-info" type="submit">Logout</button></a> -->
+ <div class="container">
+   <div class="row col-md-8 col-sm-8  offset-2 questionContainer">
+     <div class="questionArea col-md-8 col-sm-8">
+       <div class="offset-2 col-md-12 col-sm-12">
+        <div class="row">
+        <p id="randomInsult" class="offset-4 col-md-4 col-sm-4" style="opacity: 0; width:1000px; height:40px; text-align: ;"> </p>
+        </div>
+        <div class="row questionDetails">
+          <div class="row questionumber col-md-12 col-sm-12 offset-4">Bonus Question</div>
+          
+        </div>
+        <div class="row questionontent">
+          {% if question is not None%}<div class="sub-ttle" id="bonusQuestionText"> {{ question }} </div>{% endif %}
+        </div>  
+        <div class="row questionImage card-img" id="bonusQuestionImage">
+          {% if level.image.url is not None %}
+            <img src={{level.image.url}} class="img-responsive">
+          {% endif %}
+          {% if level.audiofile.url is not None %}
+           <audio controls id="bonusQuestionAudio"><source src={{level.audiofile.url}} type="audio/mpeg">
+  	                  Your browser does not support the audio tag.
+  	       </audio>
+	       {% endif %}
+	       {% if level.videofile.url is not None %} 
+           <video width="auto" height= "150" controls id="bonusQuestionVideo"><source src={{level.videofile.url}} type="video/mp4">
+          Your Browser does not support the video tag
+          </video>
+	      {% endif %}
+        </div>
+        <div class="row question">
+          
+        </div>
+        <div class="row">
+          <form method="POST" action="" id="answer"> {% csrf_token %} {{form}}  
+
+          <input type="submit" value="submit" name="" class="btn btn-primary">
+          </form></div>
+       </div>
+     </div>
+     <div class="offset-2 col-md-2 col-sm-2">
+     <p onmouseover="showInsult()" class="imageArea"><img id="marioimg"  src="{% static "images/mario-question.svg" %}"></p>
+   </div>
+   </div>
+   
+ </div>
+{% endblock %}
+{% block post %}<script type="text/javascript">
+  var comments = ["Hey Step up your game", "You can still win","It will be nicer if you try being smarter","I’d agree with you but then we’d both be wrong","Keep Typing. Maybe you’ll find the answer","My friend says that you need a therapist.","Remember what I told you: It's hard ","Life sometimes gets hard for no reason ","50% correct 50% incorrect","Same old same old ","   Maybe you don't want the prizes so bad ","I think you are stuckkkk….","I bet you didn't see that coming ","This is an easy question ","Looks like someone needs a little help ","I am surprised you reached till here ","It's not what you are thinking ","JBL PORTABLE SPEAKER","JBL WIRED HEADPHONES","10000 mAH MI POWER BANK","ROUTER ","BOAT EARPHONES "," I don't know that either ","Good luck! You will need it "];
+$(document).ready(function(){
+  $("#marioimg").hover(function(){
+    $("#randomInsult").css("opacity", "1");
+    }, function(){
+    $("#randomInsult").css("opacity", "0");
+  });
+});
+function showInsult() {
+  var comment = comments[Math.floor(Math.random() * 25)];
+  // var randomInsult = "Your " + randomBodyPart + " is " + randomAdjective + " " + randomWord;
+  var randomInsult = comment;
+  document.getElementById("randomInsult").innerHTML = randomInsult;
+};
+
+// Code for count-down timer 
+var exp_date = "{{ date|date:'M d Y' }}";
+console.log(exp_date);
+var exp_hour = "{{ hour}}";
+var exp_minute = "{{ minute }}";
+var exp_second = "{{ second }}";
+var expiry = exp_date + ' ' + exp_hour + ':' + exp_minute + ':' + exp_second;
+console.log({{ year }},{{ month }},{{ day }},{{ hour }},{{ minute }},{{ second }},0);
+var countDownDate = new Date({{ year }}, {{ month }}, {{ day }}, {{ hour }}, {{ minute }}, {{ second }}, 0).getTime() - (31*24*60*60*1000);
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+    
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  //console.log(days);
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+  // Output the result in an element with id="TimerVivek"
+  document.getElementById("TimerVivek").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+    
+  // If the count down is over, write some text 
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("TimerVivek").innerHTML = "EXPIRED";
+  }
+}, 1000);
+
+
+// $('#check').click(function() {
+//   if ($(this).is(':checked')) {
+//     $('#submit').removeAttr('disabled');
+//     $('#para').css('opacity','0');
+//   } else {
+//     $('#submit').attr('disabled', 'disabled');
+//   }
+// });
+</script>{% endblock %}
