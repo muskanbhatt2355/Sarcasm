@@ -9,5 +9,5 @@ urlpatterns=[
 	path('forum',views.forum, name='forum'),
 	path('instructions',views.instructions, name='instructions'),
 	path('contacts', views.contacts, name='contacts'),
-	path('bonus',views.bonus,name='bonus'),
+	path('bonus',views.Bonus.as_view(),name='bonus'),
 ]

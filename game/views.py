@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import View
 from django.contrib.auth.models import User
-from .models import Level
+from .models import Level, BonusQuestion
 from .forms import LevelForm
 from django.shortcuts import redirect
 from django.utils import timezone
@@ -25,10 +25,6 @@ def instructions(request):
 
 def contacts(request):
 	return render(request, 'game/contacts.html',{})
-
-def bonus(request):
-	return render(request, 'game/bonus.html',{})
-
 
 class Play(LoginRequiredMixin,View) :
 	login_url = '/login/'
@@ -52,7 +48,6 @@ class Play(LoginRequiredMixin,View) :
 		context = {
 			'level' : cur_level,
 			'form': form,
-			'que': question,
 		}
 		return render(request,'game/play.html',context)   #{{form|crispy}} crispy form was removed try to add it back
 
@@ -70,56 +65,81 @@ class Play(LoginRequiredMixin,View) :
 		form = self.form_class(request.POST)    #What if request != 'POST' ????
 		if form.is_valid():
 			ans = form.cleaned_data.get('answer')
-			if cur_level.is_bonus:
-				if ans=="skip":
-					cur_user.player.current_level=Level.objects.get(level_id = level_number + 1)
+			if ans == cur_level.answer:
+				level_number = cur_user.player.current_level.level_id
+				try:
+					cur_user.player.current_level = Level.objects.get(level_id = level_number + 1)
+					cur_user.player.points=cur_user.player.points+3
+					cur_user.player.current_level_time = timezone.now()	 					
 					cur_user.player.save()
-				if ans == cur_level.answer:
-					level_number = cur_user.player.current_level.level_id
-					try:
-						cur_user.player.current_level = Level.objects.get(level_id = level_number + 1)
-						cur_user.player.bonus_attempted=cur_user.player.bonus_attempted+1
-						cur_user.player.points=cur_user.player.points+4
-						cur_user.player.current_level_time = timezone.now()	 					
-						cur_user.player.save()
-					except:
-						pass
-			else:
-				if ans == cur_level.answer:
-					level_number = cur_user.player.current_level.level_id
-					try:
-						cur_user.player.current_level = Level.objects.get(level_id = level_number + 1)
-						cur_user.player.points=cur_user.player.points+3
-						cur_user.player.current_level_time = timezone.now()	 					
-						cur_user.player.save()
-					except:
-						pass
+				except:
+					pass
 
 		return redirect(reverse('play'))
 
-	# if form.is_valid():
-	# 		ans = form.cleaned_data.get('answer')
-	# 		if cur_level.is_bonus:
-	# 			if ans=="skip":
-	# 				cur_user.player.current_level=Level.objects.get(level_id = level_number + 1)
-	# 				cur_user.player.save()
-	# 			elif ans==cur_level.answer:
-	# 				try:
-	# 					cur_user.player.current_level = Level.objects.get(level_id = level_number + 1)
-	# 					cur_user.player.current_level_time = timezone.now()
-	# 					cur_user.player.points=cur_user.player.points+2
-	# 					cur_user.player.bonus_attempted=cur_user.player.bonus_attempted+1
-	# 					cur_user.player.save()
-	# 				except:
-	# 					pass
 
-			
-	# 		else:
-	# 			if ans == cur_level.answer:
-	# 				try:
-	# 					cur_user.player.current_level = Level.objects.get(level_id = level_number + 1)
-	# 					cur_user.player.current_level_time = timezone.now()
-	# 					cur_user.player.points=cur_user.player.points+3
-	# 					cur_user.player.save()
-	# 				except:
-	# 					pass
+class Bonus(View) :
+	login_url = '/login/'
+	redirect_field_name = '/register/'
+	redierct_url = 'http://localhost:8080/accounts/facebook/login/callback/'
+	# Form field for the level
+	form_class = LevelForm
+
+	def get(self, request, *args, **kwargs):
+		cur_user = User.objects.get(id=request.user.id)
+		try:
+			bonus_level = BonusQuestion.objects.get(level_id=cur_user.player.bonus_level_id)
+		except:
+			print("Bonus Level not Fetched")
+			return redirect(reverse('play'))
+		# bonus_level = BonusQuestion.objects.get(level_id=cur_user.player.bonus_level_id)
+		form = self.form_class
+
+
+		question = bonus_level.question
+		livedatetime = bonus_level.live_date
+		expdatetime = bonus_level.expiration_date
+	
+		current_time = timezone.now()
+		year = expdatetime.strftime('%Y')
+		month = expdatetime.strftime('%m')
+		day = expdatetime.strftime('%d')
+		hour = expdatetime.strftime('%H')
+		minute = expdatetime.strftime('%M')
+		second = expdatetime.strftime('%S')
+
+		context = {'question': question,'year': year,'month': month,'day': day,'hour': hour,'minute': minute,
+			'second':second,'expdate': expdatetime,'livedate': livedatetime,'now': current_time,'form':form,}
+		return render(request, 'game/bonus.html', context)
+	
+
+	def post(self,request, *args, **kwargs):
+		"""
+		POST request
+		1. Get the current user and their answer
+		2. If the answer is correct, update the level
+		"""
+		cur_user = User.objects.get(id=request.user.id)
+		bonus_level = BonusQuestion.objects.get(level_id=cur_user.player.bonus_level_id)
+		form = self.form_class(request.POST)    #What if request != 'POST' ????
+		if form.is_valid():
+			ans = form.cleaned_data.get('answer')
+			if ans == bonus_level.answer:
+				
+				level_number = bonus_level.level_id
+				if cur_user.player.bonus_level_id == level_number:
+					try:
+						cur_user.player.bonus_level_id += 1
+						cur_user.player.bonus_attempted=cur_user.player.bonus_attempted+1
+						cur_user.player.points += 10	 					
+						cur_user.player.save()
+						return redirect(reverse('play'))
+					except:
+						pass
+				else:
+					print("Cant play Bonus Twice")
+					return redirect(reverse('play'))
+			else:
+				print("Wrong Answer! Try Again")
+				return redirect(reverse('bonus'))
+		return redirect(reverse('play'))
