@@ -89,12 +89,26 @@ class Bonus(View) :
 		cur_user = User.objects.get(id=request.user.id)
 		try:
 			bonus_level = BonusQuestion.objects.get(level_id=cur_user.player.bonus_level_id)
-		except:
-			print("Bonus Level not Fetched")
-			return redirect(reverse('play'))
-		# bonus_level = BonusQuestion.objects.get(level_id=cur_user.player.bonus_level_id)
-		form = self.form_class
+			livedatetime=bonus_level.live_date
+			current_time=timezone.now()
+			expdatetime = bonus_level.expiration_date
+			expired = bonus_level.expiration_date < current_time
+			if expired:
+				bonus_array = BonusQuestion.objects.filter(level_id__gt=cur_user.player.bonus_level_id)
+				for q in bonus_array:
+					if q.live_date < current_time and current_time<q.expiration_date:
+						cur_user.player.bonus_level_id = q.level_id
+						bonus_level = BonusQuestion.objects.get(level_id=cur_user.player.bonus_level_id)
+						cur_user.player.save()
 
+			if livedatetime>current_time:
+				print("Question {0} not live".format(bonus_level.level_id))
+				raise
+		except:
+			print("Error")
+			return redirect(reverse('play'))
+		
+		form = self.form_class
 
 		question = bonus_level.question
 		livedatetime = bonus_level.live_date
