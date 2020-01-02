@@ -21,6 +21,7 @@ class Player(models.Model):
 	referral=models.CharField(max_length=100,default=0)
 	referral_count = models.IntegerField(default=0)
 	bonus_attempted = models.IntegerField(default=0)
+	is_registered = models.BooleanField(default=False)
 	
 	current_level = models.ForeignKey(Level, default=Level.DEFAULT_LEVEL, on_delete=models.CASCADE)
 	current_level_time = models.DateTimeField(default=timezone.now)
