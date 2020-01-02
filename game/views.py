@@ -107,7 +107,6 @@ class Bonus(View) :
 		except:
 			print("Error")
 			return redirect(reverse('play'))
-		
 		form = self.form_class
 
 		question = bonus_level.question
