@@ -3,6 +3,8 @@
 {% block content %}
 <div class="container-fluid" style='margin-left:150px'>
 	<div class="content-section">
+
+        {% csrf_token %}
         <form method="POST">
             {% csrf_token %}
             <fieldset class="form-group">
@@ -25,17 +27,15 @@
 </div>
 
  <script>
-    // $("#id_username").keypress(function(){
-    //     $.ajax({
-    //         type: "POST",
-    //         url:{% url 'register' %},
-    //         data: "",
-    //         success.function (data) {
-                
-    //         }
-
-    //     })
-    // })
+    $("#id_username").keypress(function(){
+        $.ajax({
+            type: "GET",
+            url: {% url 'register' %},
+            success: function(data){
+                console.log("hello");
+            }
+        })
+    })
 
     // $("#id_referral").keypress(function () {
     //     console.log("Getting xecuted")

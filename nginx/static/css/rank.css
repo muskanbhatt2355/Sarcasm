@@ -1,10 +1,175 @@
 #head{
 		color: red;
-text-align: center;	}
-@media only screen and (max-width: 766px){
+		text-align: left;	
+		font-size: 6em;
+}
+.leaderboard{
+	margin-top: 50px;
+	margin-left: 10%;
+	width: 100%	;
+}
+.table-div{
+	/* border-radius: 10px; */
+	/* background-color: red; */
+	/* padding: 10px; */
+	max-height: 70vh;
+	overflow-y: scroll;
+}
+.tables {
+	font-size: 2em;
+	color: white;
+	padding: 50px;
+	background-color: red;
+	border-collapse: separate;
+	border-spacing: 10px;
+	border-radius: 40px;	
+}
 
-#head{
-		margin-top: 20%!important;
-text-align: center;	}
+tr{
+	border-bottom: 5px solid white;
+}
+
+tr td:nth-child(3n){
+	width: 40%;
+}
+
+tr td:nth-child(3n-1){
+	width: 50%;
+}
+
+img{
+	width: 500px;
+}
+.mario-leaderboard{
+	margin-left: -20%;
+	padding-top: 4%;
+}
+.lines{
+	width: 200px;
+	background-color: lightblue;
+	height: 3px !important;
+}
+
+
+/* MEDIA RULES */
+@media only screen and (max-width: 1400px){
+	body{font-size: 70%;}
+	img{
+		width: 500px;
+	}
+}
+
+@media only screen and (max-width: 991px){
+	#head{}
+body{
+	font-size: 70%;
+}
+
+.leaderboard{
+	margin-left: 100px;
+}
+.tables{
+	padding: 20px;
+	/* width: 100%; */
+}
+td, tr{
+	max-width: 60%;
+}
+.table-div{
+	margin-left: 1%;
+}
+img{
+	display: none;
+}
+}
+
+@media only screen and (max-width: 766px){
+	#head{
+			margin-top: 15%!important;
+	text-align: center;	}
+	
+	body{
+		font-size: 50%;
+	}
+	
+	.leaderboard{
+		margin: auto;
+		overflow-x: hidden;
+	}
+	.tables{
+		padding: 20px;
+		width: 100%;
+	}
+	td, tr{
+		/* max-width: 60%; */
+	}
+	img{
+		display: none;
+	}
+	}
+
+@media only screen and (max-width:750px){
+	body{
+		font-size: 60%;
+	}
+	.table-div{
+		margin-left: 15%;
+		width: 70%;
+	}
+	tr td:nth-child(3n){
+		width: 25%;
+	}
+	
+	tr td:nth-child(3n-1){
+		width: 50%;
+	}
+	tr td:nth-child(3n-2){
+		width: 25%;
+	}
+}
+@media only screen and (max-width:680px){
+	body{
+		font-size: 60%;
+	}
+	.table-div{
+		margin-left: 1%;
+		width: 100%;
+	}
+}
+@media only screen and (max-width:460px){
+	body{
+		font-size: 50%;
+	}
+}
+@media only screen and (max-width:380px){
+	body{
+		font-size: 40%;
+	}
+	.leaderboard{
+		margin-top: 10px;
+		margin-left: -1%;
+		width: 100%	;
+		padding-right: 0%;
+		overflow-x: hidden;
+	}
+	tr td:nth-child(3n){
+		width: 70%;
+		margin-right: 100px;
+		margin-left: -40px;
+	}
+
+	tr td:nth-child(3n-1){
+		width: 10%;
+	}
+	.table-div{
+		margin-left: -4%;
+		/* overflow-x: hidden; */
+		width: 110%;
+	}
+	.tables{
+		padding-right: 0%;
+		margin-left: 0;
+		margin-right: 0%;
+	}
 
 }

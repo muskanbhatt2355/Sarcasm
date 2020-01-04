@@ -1,40 +1,43 @@
 {% extends 'game/base.html' %}
 {% load staticfiles %}
-{% block head %}
+{% block css %}
     <link rel="stylesheet" href="{% static 'css/rank.css' %}">
-{% endblock %}
+    {% endblock %}
 
 {% block content %}
-<div class="col-md-2"></div>
-<div class="col-md-8">
-  <h2 id="head" >Leaderboard</h2>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>RANK</th>
-        <th>USERNAME</th>
-        <th>POINTS</th>
-      </tr>
-    </thead>
-{% for user in queryset %}
+<div class="col-md-11 leaderboard">
+  <h1 id="head" >Leaderboard</h1>
+  <div class="flex-row row">
+    <div class="table-div col-md-9"><table class="tables">
+          <tr>
+            <td>0</td>
+            <td><span>{{player.username}}</span></td>
+            <td>{{player.points}}</td>
 
-    <tbody>
-      <tr>
-        <td style="background-color:white;">{{forloop.counter}}</td>
-        <td style="background-color: red; color:white; font-weight: 600;"><span>{{user.username}}</span></td>
-        <td style="background-color:white ">{{user.player.points}}</td>
-      </tr>
-  </tbody>
+          </tr>
+          <tr><span class="lines"><span>
+          </tr>
+      {% for user in queryset %}          
+          <tr>
+            <td>{{forloop.counter}}</td>
+            <td><span>{{user.username}}</span></td>
+            <td>{{user.player.points}}</td>
+          </tr>
+           
 
-{%endfor%}
-  </table>
+      {%endfor%}
+    
+    </table></div>
+    <div class="col-md-3 mario-leaderboard"><img src="{% static "images/lb.svg" %}"> </div>
+  </div>
+  </div>
+{% endblock %}
+{% block post %}
 
-</div>
 <script>
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();   
 });
 </script>
 
-
-{% endblock %}
+{% endblock post %}
