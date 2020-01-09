@@ -1,5 +1,8 @@
+body{
+	background-color: black;
+}
 #head{
-		color: red;
+		color:white;
 		text-align: left;	
 		font-size: 6em;
 }
@@ -19,7 +22,7 @@
 	font-size: 2em;
 	color: white;
 	padding: 50px;
-	background-color: red;
+	/* background-color: red; */
 	border-collapse: separate;
 	border-spacing: 10px;
 	border-radius: 40px;	
@@ -29,16 +32,22 @@ tr{
 	border-bottom: 5px solid white;
 }
 
-tr td:nth-child(3n){
+tr td:nth-child(4n){
 	width: 40%;
 }
 
-tr td:nth-child(3n-1){
-	width: 50%;
+tr td:nth-child(4n-1){
+	width: 30%;
 }
 
+tr td:nth-child(4n-2){
+	width: 20%;
+}
 img{
-	width: 500px;
+	width: 40px; 
+}
+.ba{
+	margin-left: 40%;
 }
 .mario-leaderboard{
 	margin-left: -20%;
@@ -54,11 +63,11 @@ img{
 /* MEDIA RULES */
 @media only screen and (max-width: 1400px){
 	body{font-size: 70%;}
-	img{
+	/* img{
 		width: 500px;
-	}
+	} */
 }
-
+/* 
 @media only screen and (max-width: 991px){
 	#head{}
 body{
@@ -70,7 +79,7 @@ body{
 }
 .tables{
 	padding: 20px;
-	/* width: 100%; */
+	width: 100%;
 }
 td, tr{
 	max-width: 60%;
@@ -81,9 +90,9 @@ td, tr{
 img{
 	display: none;
 }
-}
+} */
 
-@media only screen and (max-width: 766px){
+@media only screen and (max-width: 991px){
 	#head{
 			margin-top: 15%!important;
 	text-align: center;	}
@@ -103,11 +112,11 @@ img{
 	td, tr{
 		/* max-width: 60%; */
 	}
-	img{
+	/* img{
 		display: none;
+	} */
 	}
-	}
-
+/* 
 @media only screen and (max-width:750px){
 	body{
 		font-size: 60%;
@@ -126,7 +135,7 @@ img{
 	tr td:nth-child(3n-2){
 		width: 25%;
 	}
-}
+} */
 @media only screen and (max-width:680px){
 	body{
 		font-size: 60%;
@@ -136,14 +145,13 @@ img{
 		width: 100%;
 	}
 }
+
 @media only screen and (max-width:460px){
 	body{
 		font-size: 50%;
 	}
-}
-@media only screen and (max-width:380px){
-	body{
-		font-size: 40%;
+	img{
+		width: 20px;
 	}
 	.leaderboard{
 		margin-top: 10px;
@@ -173,3 +181,7 @@ img{
 	}
 
 }
+@media only screen and (max-width:380px){
+	body{
+		font-size: 40%;
+	}}

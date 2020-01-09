@@ -9,26 +9,17 @@
   <h1 id="head" >Leaderboard</h1>
   <div class="flex-row row">
     <div class="table-div col-md-9"><table class="tables">
-          <tr>
-            <td>0</td>
-            <td><span>{{player.username}}</span></td>
-            <td>{{player.points}}</td>
-
-          </tr>
-          <tr><span class="lines"><span>
-          </tr>
       {% for user in queryset %}          
           <tr>
             <td>{{forloop.counter}}</td>
             <td><span>{{user.username}}</span></td>
             <td>{{user.player.points}}</td>
+            <td class="d-flex flex-row"><div><img src="{% static 'images/Bonus.svg' %}" alt=""></div> <div class="ba">{{user.player.bonus_attempted}}</div></td>
           </tr>
-           
-
       {%endfor%}
     
     </table></div>
-    <div class="col-md-3 mario-leaderboard"><img src="{% static "images/lb.svg" %}"> </div>
+    {% comment %} <div class="col-md-3 mario-leaderboard"><img src="{% static "images/lb.svg" %}"> </div> {% endcomment %}
   </div>
   </div>
 {% endblock %}
