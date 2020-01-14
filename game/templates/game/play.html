@@ -36,9 +36,9 @@
 	        {% endif %}
         </div>
         <div class="row">
-          <form method="POST" action="" id="answer"> {% csrf_token %} 
+          <form class="d-flex flex-column" method="POST" action="" id="answer"> {% csrf_token %} 
             {{form}}  
-          <input type="submit" value="submit" name="" class="btn btn-primary">
+          <input  type="submit" value="submit" name="" class="submitButton row">
           </form>
         </div>
        

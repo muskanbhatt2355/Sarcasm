@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="style2.css">
+      <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script>
+  $(function() {
+  var message = {
+
+    message: [
+      'SARCasm is fun','SARCasm is easy? Nah!','Want to try your luck?','Keep looking at the bonus tab','OoooooooooooOoooooooooOoooooooooooOooo'
+    ],
+    counterS: 0,
+    counterL: 0,
+    deleteS: false,
+
+    init: function() {
+      this.cacheElem();
+      this.type();
+    },
+
+    cacheElem: function() {
+      this.$text = $('.text');
+    },
+
+    type: function() {
+      var message   = this.message[this.counterS],
+          that      = this,
+          speed     = 0;
+
+      message = !this.deleteS ? message.slice(0, ++this.counterL) : message.slice(0, --this.counterL);
+      if(this.message[this.counterS] != message && !this.deleteS) {
+        this.$text.text(message);
+        speed = 90;
+      }
+      else {
+        this.deleteS = true;
+        speed = this.message[this.counterS] == message ? 1000 : 40;
+        this.$text.text(message);
+        if (message == '') {
+          this.deleteS = false;
+          this.counterS = this.counterS < this.message.length - 1 ? this.counterS + 1 : 0;
+        }
+      }
+      setTimeout(function(){that.type()}, speed);
+    }
+  };
+  message.init();
+});
+</script>
+<script>
+  $(document).ready(function(){
+  var zindex = 10;
+  
+  $("div.card").click(function(e){
+    e.preventDefault();
+
+    var isShowing = false;
+
+    if ($(this).hasClass("show")) {
+      isShowing = true
+    }
+
+    if ($("div.cards").hasClass("showing")) {
+      // a card is already in view
+      $("div.card.show")
+        .removeClass("show");
+
+      if (isShowing) {
+        // this card was showing - reset the grid
+        $("div.cards")
+          .removeClass("showing");
+      } else {
+        // this card isn't showing - get in with it
+        $(this)
+          .css({zIndex: zindex})
+          .addClass("show");
+
+      }
+
+      zindex++;
+
+    } else {
+      // no cards in view
+      $("div.cards")
+        .addClass("showing");
+      $(this)
+        .css({zIndex:zindex})
+        .addClass("show");
+
+      zindex++;
+    }
+    
+  });
+});
+</script>
+  <title></title>
+</head>
+<body>
+
+<div class="wrapper">
+  <span></span><span class="text"></span><span class="cursor">|</span>
+</div>
+<div class="cards">
+
+  <div class="card">
+    <img class="card__image" src="ph1.jpg" alt="wave" />
+    <div class="card-title">
+      <a href="#" class="toggle-info btn">
+        <span class="left"></span>
+        <span class="right"></span>
+      </a>
+      <h2>
+        Shradha Bansal
+        <small>Media and Public Relations</small>
+      </h2>
+    </div>
+    <div class="card-flap flap1">
+      <div class="card-description">
+        Contact - +91-9571709499
+      </div>
+      <div class="card-flap flap2">
+        <div class="card-actions">
+          <!-- <a href="#"> --><span class="comments"><a href="#"><img src="fb.svg"></a></span><span class="comments"><a href="#"><img src="li.svg"></a></span><span class="comments"><a href="https://www.youtube.com/watch?v=X0rJieOM2NY"><img src="yt.svg"></a></span><!-- </a> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="card">
+    <img class="card__image" src="ph1.jpg" alt="wave" />
+    <div class="card-title">
+      <a href="#" class="toggle-info btn">
+        <span class="left"></span>
+        <span class="right"></span>
+      </a>
+      <h2>
+        Shradha Bansal
+        <small>Media and Public Relations</small>
+      </h2>
+    </div>
+    <div class="card-flap flap1">
+      <div class="card-description">
+        Contact - +91-9571709499
+      </div>
+      <div class="card-flap flap2">
+        <div class="card-actions">
+          <!-- <a href="#"> --><span class="comments"><a href="#"><img src="fb.svg"></a></span><span class="comments"><a href="#"><img src="li.svg"></a></span><span class="comments"><a href="https://www.youtube.com/watch?v=X0rJieOM2NY"><img src="yt.svg"></a></span><!-- </a> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="card">
+    <img class="card__image" src="ph1.jpg" alt="wave" />
+    <div class="card-title">
+      <a href="#" class="toggle-info btn">
+        <span class="left"></span>
+        <span class="right"></span>
+      </a>
+      <h2>
+        Shradha Bansal
+        <small>Media and Public Relations</small>
+      </h2>
+    </div>
+    <div class="card-flap flap1">
+      <div class="card-description">
+        Contact - +91-9571709499
+      </div>
+      <div class="card-flap flap2">
+        <div class="card-actions">
+          <!-- <a href="#"> --><span class="comments"><a href="#"><img src="fb.svg"></a></span><span class="comments"><a href="#"><img src="li.svg"></a></span><span class="comments"><a href="https://www.youtube.com/watch?v=X0rJieOM2NY"><img src="yt.svg"></a></span><!-- </a> -->
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="card">
+    <img class="card__image" src="ph1.jpg" alt="wave" />
+    <div class="card-title">
+      <a href="#" class="toggle-info btn">
+        <span class="left"></span>
+        <span class="right"></span>
+      </a>
+      <h2>
+        Shradha Bansal
+        <small>Media and Public Relations</small>
+      </h2>
+    </div>
+    <div class="card-flap flap1">
+      <div class="card-description">
+        Contact - +91-9571709499
+      </div>
+      <div class="card-flap flap2">
+        <div class="card-actions">
+          <!-- <a href="#"> --><span class="comments"><a href="#"><img src="fb.svg"></a></span><span class="comments"><a href="#"><img src="li.svg"></a></span><span class="comments"><a href="https://www.youtube.com/watch?v=X0rJieOM2NY"><img src="yt.svg"></a></span><!-- </a> -->
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="card">
+    <img class="card__image" src="ph1.jpg" alt="wave" />
+    <div class="card-title">
+      <a href="#" class="toggle-info btn">
+        <span class="left"></span>
+        <span class="right"></span>
+      </a>
+      <h2>
+        Shradha Bansal
+        <small>Media and Public Relations</small>
+      </h2>
+    </div>
+    <div class="card-flap flap1">
+      <div class="card-description">
+        Contact - +91-9571709499
+      </div>
+      <div class="card-flap flap2">
+        <div class="card-actions">
+          <!-- <a href="#"> --><span class="comments"><a href="#"><img src="fb.svg"></a></span><span class="comments"><a href="#"><img src="li.svg"></a></span><span class="comments"><a href="https://www.youtube.com/watch?v=X0rJieOM2NY"><img src="yt.svg"></a></span><!-- </a> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body> 
+</html>

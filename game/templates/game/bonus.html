@@ -7,18 +7,16 @@
  {% endblock %}
 
 {% block content %}
-<p id="TimerVivek" style = "position:absolute; top:2%; right: 2%; font-size: 35px;"></p>
+
 <!-- 	<h1>Congratulations! You have logged in. Let's play now</h1>
  		<a href="{% url 'logout' %}"> <button class="btn btn-outline-info" type="submit">Logout</button></a> -->
  <div class="container">
-   <div class="row col-md-8 col-sm-8  offset-2 questionContainer">
-     <div class="questionArea col-md-8 col-sm-8">
-       <div class="offset-2 col-md-12 col-sm-12">
+   <div class="questionContainer d-flex flex-column">
         <div class="row">
-        <p id="randomInsult" class="offset-4 col-md-4 col-sm-4" style="opacity: 0; width:1000px; height:40px; text-align: ;"> </p>
+            <p id="TimerVivek" style = "font-size: 35px;"></p>
         </div>
-        <div class="row questionDetails">
-          <div class="row questionumber col-md-12 col-sm-12 offset-4">Bonus Question</div>
+        <div class="questionDetails">
+          <div class="row questionumber">Bonus Question</div>
           
         </div>
         <div class="row questionontent">
@@ -39,19 +37,17 @@
           </video>
 	      {% endif %}
         </div>
-        <div class="row question">
-          
-        </div>
         <div class="row">
-          <form method="POST" action="" id="answer"> {% csrf_token %} {{form}}  
+          <form class="d-flex flex-column" method="POST" action="" id="answer"> {% csrf_token %} {{form}}  
 
-          <input type="submit" value="submit" name="" class="btn btn-primary">
-          </form></div>
+          <input type="submit" value="submit" name="" class="submitButton row">
+          </form>
+        </div>
        </div>
-     </div>
+{% comment %}      
      <div class="offset-2 col-md-2 col-sm-2">
      <p onmouseover="showInsult()" class="imageArea"><img id="marioimg"  src="{% static "images/mario-question.svg" %}"></p>
-   </div>
+   </div> {% endcomment %}
    </div>
    
  </div>

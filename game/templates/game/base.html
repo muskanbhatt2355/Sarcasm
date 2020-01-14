@@ -13,33 +13,121 @@
 	<meta property="og:description" content="Sarcasm. Insti's online crypt hunt." />
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	{% block head %}{% endblock %}    
+	
 
-		<!-- Bootstrap CSS -->
+	{% block head %}
+	{% endblock %}
+	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel="shortcut icon" href="{%static 'images/fav1.png'%}" />
 	<link rel="stylesheet" href="{% static 'css/style.css' %}">
-	{%block css%}{% endblock %}
-	
-</head>
-<body>	
-	<div class="navbar vivek">
-    <a href="{% url 'game-home' %}"><img src="{% static "images/home.svg" %}"><div class="icons">Home</div></a>
-    <a href="{% url 'instructions' %}"><img src="{% static "images/instructions.svg" %}"><div class="icons">Rules</div></a>
-    <a href="{% url 'leaderboard' %}"><img src="{% static "images/leaderboard.svg" %}"><div class="icons">Rank</div></a>
-    <a href="{% url 'forum' %}" target="_blank"><img src="{% static "images/forum.svg" %}"><div class="icons">Forum</div></a>
-    <a href="{% url 'contacts' %}" class="help"><img src="{% static "images/help.svg" %}"><div class="icons">Help</div></a>
-    <a href="{% url 'prize' %}"><img src="{% static "images/trophy.svg" %}"><div class="icons">Prizes</div></a>
-	<a href="{% url 'bonus' %}"><img src="{% static "images/trophy.svg" %}"><div class="icons">Bonus</div></a>
- 
-  </div>
+	<link rel="stylesheet" href="{% static 'css/base_ham.css' %}">
 
-  <div class="footer vivek">
-    <a href="https://www.facebook.com/SARC.IITB/" target="_blank">
-			<img src="{% static "images/fb.svg" %}"></a>
-    <a href="https://in.linkedin.com/in/sarciitb" target="_blank"><img src="{% static "images/linkedin-sign.svg" %}"></a>
-    <a href="https://www.youtube.com/user/SARCIIT" target="_blank"><img src="{% static "images/youtube.svg" %}"></a>
-  </div>
+	{%block css%}
+	{% endblock %}
+	
+	</head>
+<body>
+	<!-- Desktop Navbar -->	
+	<div class="navbar-container container" id="navbarVSV">
+		<ul class="nav">
+			<li class="nav-item">
+				<a href="{% url 'game-home' %}" class="nav-link active-link">Home
+				</a>
+				<div class="underline"></div>
+			</li>
+			<li class="nav-item">
+				<a href="{% url 'instructions' %}" class="nav-link">Rules</a>
+				<div class="underline"></div>
+			</li>
+			<li class="nav-item">
+				<a href="{% url 'leaderboard' %}" class="nav-link">Ranks</a>
+				<div class="underline"></div>
+			</li>
+			<li class="nav-item">
+				<a href="{% url 'game-home' %}" class="nav-link"><img src="{% static 'images/sarcasmCircle.svg' %}" id="mark"></a>
+			</li>
+			<li class="nav-item">
+				<a href="{% url 'forum' %}" class="nav-link">Forum</a>
+				<div class="underline"></div>
+			</li>
+			<li class="nav-item">
+				<a href="{% url 'prize' %}" class="nav-link">Prizes</a>
+				<div class="underline"></div>
+			</li>
+			<li class="nav-item">
+				<a href="{% url 'bonus' %}" class="nav-link">Bonus</a>
+				<div class="underline"></div>
+			</li>
+		</ul>
+	</div>
+
+	<!-- Hamburger -->
+	<div class="hamburger hamburger--emphatic" id="hamburgerVivek">
+    	<div class="hamburger-box">
+      		<div class="hamburger-inner"></div>
+    	</div>
+  	</div>
+
+  	<!-- Side Navbar Overlay -->
+  	<div class="overlay navbar-container">
+  		<ul id="listVSV">
+	<!-- <img src="{% static 'img/base/alumination logo.svg' %}" id="aluminationLogo-overlay"></a> -->
+  			<li class="nav-link active-link">
+				<a href="{% url 'game-home' %}">Home</a>
+				<div class="underline"></div>
+			</li>
+			<li class="nav-link">
+				<a href="{% url 'instructions' %}">Rules</a>
+				<div class="underline"></div>
+			</li>
+			<li class="nav-link">
+				<a href="{% url 'leaderboard' %}">Leaderboard</a>
+				<div class="underline"></div>
+			</li>
+			<li class="nav-link">
+				<a href="{% url 'forum' %}">Forum</a>
+				<div class="underline"></div>
+			</li>
+			<li class="nav-link">
+				<a href="{% url 'contacts' %}">Help</a>
+				<div class="underline"></div>
+			</li>
+			<li class="nav-link">
+				<a href="{% url 'prize' %}">Prizes</a>
+				<div class="underline"></div>
+			</li>
+			<li class="nav-link">
+				<a href="{% url 'bonus' %}">Bonus</a>
+				<div class="underline"></div>
+			</li>
+  		</ul>
+  		<!--<img src="{% static 'img/base/gate.svg' %}" id="overlayImage">-->
+  	</div>
+
+  	<!-- Navbar centre logo -->
+	<a href="{% url 'game-home' %}">
+	<img src="{% static 'images/sarcasmLogo.svg' %}" id="aluminationLogo"></a>
+	</div>
+
+	{% block content%}
+
+	{% endblock %}
+
+	<!-- Footer -->
+	
+	<div class="footer d-flex justify-content-around">
+		  	<div class="row">
+		  		<a href="https://www.facebook.com/SARC.IITB/" target="_blank">
+					{% load static %}
+					<img src="{% static "images/fb.svg" %}"></a>
+				<a href="https://in.linkedin.com/in/sarciitb" target="_blank"><img src="{% static "images/linkedin-sign.svg" %}"></a>
+				<a href="https://www.youtube.com/user/SARCIIT" target="_blank"><img src="{% static "images/youtube.svg" %}"></a>
+		  	</div>
+		  	<div class="row" style="color: white; margin-left:-6.5%"><!-- SARC Logo -->SARC</div>
+		  	<div class="row" style="color: white">Help</div>  	
+  	</div>
+
 	<div>
 		{% if messages %}
 			{% for message in messages %}
@@ -49,10 +137,6 @@
 			{% endfor %}
 		{% endif %}		
 	</div>
-	{% block content%}
-
-	{% endblock %}
-
 	
 	<!-- Optional JavaScript -->
 
@@ -70,9 +154,22 @@
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="{% static 'js/base.js' %}"></script>
+	<script>
 
-{% block post %}{% endblock %}
+    var forEach=function(t,o,r){if("[object Object]"===Object.prototype.toString.call(t))for(var c in t)Object.prototype.hasOwnProperty.call(t,c)&&o.call(r,t[c],c,t);else for(var e=0,l=t.length;l>e;e++)o.call(r,t[e],e,t)};
+
+    var hamburgers = document.querySelectorAll(".hamburger");
+    if (hamburgers.length > 0) {
+      forEach(hamburgers, function(hamburger) {
+        hamburger.addEventListener("click", function() {
+          this.classList.toggle("is-active");
+        }, false);
+      });
+    }
+  </script>
 </body>
+{% block post %}{% endblock %}
 </html>
 
 

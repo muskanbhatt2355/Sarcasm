@@ -12,9 +12,9 @@
   /* The image used */
 
   /* Full height */
-    height: 35%;
-  /* Center and scale the image nicely */
 
+    height: 35%!important;
+  /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
   display:block;
@@ -37,8 +37,9 @@
 }
 
 body{
-overflow-x:hidden;
-font-family: Gilroy-ExtraBold;
+	background-color: black;
+	overflow-x:hidden;
+	font-family: Gilroy-ExtraBold;
 }
 
 .buttons .btn{
@@ -48,6 +49,241 @@ font-family: Gilroy-ExtraBold;
 }
 
 
+a{
+	outline: none;
+}
+.navbar-container {
+	text-align: center;
+	padding: 10px;
+	font-size: 0;
+	color: #335867;
+}
+
+.navbar-container ul {
+	margin: 0;
+	padding: 0;
+	text-align: right;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.navbar-container ul li {
+	display: inline-block;
+	font-size: 1.5rem;
+	margin-left: 35px;
+}
+
+.navbar-container ul li a {
+	color: white;
+	text-decoration: none;
+	display: inline-block;	
+	padding: 10px;
+	transition: color 0.5s;
+}
+
+.navbar-container ul li .underline {
+	height: 3px;
+	background-color: transparent;
+	width: 0%;
+	transition: width 0.2s, background-color 0.5s;
+	margin: 0 auto;
+}
+
+.navbar-container ul li.active-link .underline {
+	width: 100%;
+	background-color: #487F8C;
+}
+
+.navbar-container ul li:hover .underline {
+	background-color: white;
+	width: 100%;
+}
+
+.navbar-container ul li:hover a {
+}
+
+.navbar-container ul li:active a {
+	transition: none;
+	color: rgba(255,255,255,0.76);
+}
+
+.navbar-container ul li:active .underline {
+	transition: none;
+	background-color: rgba(255,255,255,0.76);
+}
+
+.hamburger {
+	display: none !important;
+	z-index: 500;
+}
+
+#aluminationLogo {
+	/* position: relative;
+	display: block; */
+	width: 40%;
+	/* top: 25%; */
+	/* margin-left: auto;
+	margin-right: auto; */
+}
+#aluminationLogo-overlay {
+	position: relative;
+	display: block;
+	width: 40%;
+	top: 25%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#mark{
+	width: 60px;
+}
+
+#overlayImage {
+	/*display: none;*/
+	z-index: 401;
+	transform: translateX(-200%);
+	transition: transform 1s ease-in-out;
+}
+
+#listVSV {
+	/*display: none;*/
+	z-index: 400;
+	transform: translateY(-125%);
+	transition: transform 1s ease-in-out;
+	background-color: black;
+	margin-top: -20px;
+}
+
+/*------------- Media Rule for ipad-------------------*/
+@media only screen and (min-width: 1200px) {
+	#listVSV{
+		display: none !important;
+	}
+	
+	#aluminationLogo {
+		display: none !important;
+	}
+
+	#overlayImage {
+		display: none !important;
+	}
+
+}
+@media only screen and (max-width: 1200px) {
+  #navbarVSV { 
+  	display: none; 
+  }
+  
+  body {
+  	background-color: black;
+  	background-image: none;
+  }
+
+
+  /*#aluminationLogo {
+	position: absolute;
+	display: inline-block;
+	width: 65%;
+	top: 2% !important;
+	left: 5%;
+
+  }*/
+
+  #aluminationLogo {
+	  /* z-index: 2; */
+	/* position: absolute; */
+	/* display: block; */
+	width: 240px;
+	/* top: 2% !important; */
+	/* left: 20vw; */
+	/* margin-left: auto; */
+	}
+
+  .hamburger {
+	display: inline-block !important;
+	position: absolute;
+	right: 4%;
+	top: 20px;
+	color: white;
+	}
+
+	.overlay {
+		margin-top: 0px;
+	}
+
+	#overlayImage {
+	width: 75%;
+	position: absolute;
+	left: -38%;
+	top: 20%;
+	height: 70%;
+	}
+
+	.navbar-container ul li {
+		display: block;
+	}
+
+	.navbar-container ul li.active-link .underline {
+		width: 20%;
+	}
+
+	.navbar-container ul li:hover .underline {
+		width: 20%;
+	}
+
+	.navbar-container ul {
+		text-align: center;
+		display: block;
+		width: 100%;
+		height: 100%;
+		position: fixed;
+		top: 15%;
+		left: 0%;
+	}
+
+	.nav-link {
+		position: relative;
+		left: 5%;
+	}
+}
+
+/*-----------------Media Rule for phone-----------*/
+@media only screen and (max-width: 450px) {
+	#overlayImage {
+	width: 86%;
+	position: absolute;
+	left: -38%;
+	top: 25vw;
+	}
+
+	.navbar-container ul {
+		width: 80%;
+	}
+
+	.navbar-container ul li.active-link .underline {
+		width: 35%;
+	}
+
+	.navbar-container ul li:hover .underline {
+		width: 35%;
+	}
+
+	.hamburger {
+		right: 0;
+		top: 1%;
+	}
+
+	.nav-link {
+		position: relative;
+		left: 15%;
+	}
+}
+
+#listVSV{
+    margin-top: -110px;
+}
+
+/*------------------------------------sdflsfjdsjf--------*/
 .navbar{	
 	position: fixed;
 	top: 0px;
@@ -96,9 +332,8 @@ font-family: Gilroy-ExtraBold;
 }
 
 .footer {
-	left:5%;
-	position:fixed;
-	transform: translate(77.5vw, 85vh);
+	width: 100%;
+	margin-top: 14%;	
 }
 
 .footer img {
