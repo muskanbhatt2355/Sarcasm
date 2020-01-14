@@ -1,57 +1,53 @@
 {% extends 'game/base.html' %}
 {% load staticfiles %}
-{% block head %}
+{% block css %}
     <link rel="stylesheet" href="{% static 'css/play.css' %}">
-<!--     <script src="{% static 'js/comm.js' %}" ></script>-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
  {% endblock %}
 
 {% block content %}
 <!-- 	<h1>Congratulations! You have logged in. Let's play now</h1>
  		<a href="{% url 'logout' %}"> <button class="btn btn-outline-info" type="submit">Logout</button></a> -->
  <div class="container">
-   <div class="row col-md-8 col-sm-8  offset-2 questionContainer">
-     <div class="questionArea col-md-8 col-sm-8">
-       <div class="offset-2 col-md-12 col-sm-12">
-        <div class="row">
-        <p id="randomInsult" class="offset-4 col-md-4 col-sm-4" style="opacity:0 ;width:1000px; height:40px; text-align:center;"> </p>
+    <div class="questionContainer d-flex flex-column">
+        <div class="">
+          <p id="randomInsult" class="" style="opacity:0 ;width:1000px; height:40px; text-align:center;"></p>
         </div>
-        <div class="row questionDetails">
+        <div class="questionDetails">
           {% if not level.is_bonus %}
-          <div class="row questionumber col-md-12 col-sm-12 offset-4">{{level.level_id}}.</div>{% endif %}
+            <div class="row questionumber">{{level.level_id}}.</div>
+          {% endif %}
           {% if level.is_bonus %}
-          <div class="row questionumber col-md-12 col-sm-12 offset-6">Its a Bonus question<br>
-<p style="font-size:0.5em; ">*Do read the insructions regarding bonus question</p> </div>{% endif %}
+            <div class="row questionumber">Its a Bonus question<br>
+              <p style="font-size:0.5em; ">*Do read the insructions regarding bonus question</p>
+            </div>
+          {% endif %}
         </div>
         <div class="row questionontent">
           {% if level.question is not None%}<div class="sub-ttle">{{level.question}}</div>{% endif %}
         </div>  
-        <div class="row questionImage card-img">
+        <div class="row questionMedia card-img">
           {% if level.image.url is not None %}<img src={{level.image.url}} class="img-responsive">{% endif %}
-          {% if level.audiofile.url is not None %}
-	<audio controls>
-          <source src={{level.audiofile.url}} type="audio/mpeg">
-	  Your browser does not support the audio tag.
-	</audio>
-	  {% endif %}
-	{% if level.videofile.url is not None %} <video width="auto" height= "150" controls><source src={{level.videofile.url}} type="video/mp4">
-        Your Browser does not support the video tag
-        </video>
-	{% endif %}
-        </div>
-        <div class="row question">
-          
+          {% if level.audiofile.url is not None %}<audio controls><source src={{level.audiofile.url}} type="audio/mpeg">
+	                              Your browser does not support the audio tag</audio>
+	        {% endif %}
+        	{% if level.videofile.url is not None %} <video width="auto" height= "150" controls><source src={{level.videofile.url}} type="video/mp4">
+            Your Browser does not support the video tag
+                                  </video>
+	        {% endif %}
         </div>
         <div class="row">
           <form method="POST" action="" id="answer"> {% csrf_token %} 
             {{form}}  
           <input type="submit" value="submit" name="" class="btn btn-primary">
-          </form></div>
-       </div>
-     </div>
-     <div class="offset-2 col-md-2 col-sm-2">
-     <p onmouseover="showInsult()" class="imageArea"><img id="marioimg"  src="{% static "images/mario-question.svg" %}"></p>
-   </div>
+          </form>
+        </div>
+       
+    </div>
+    {% comment %} 
+      <div class="offset-2 col-md-2 col-sm-2">
+       <p onmouseover="showInsult()" class="imageArea"><img id="marioimg"  src="{% static "images/mario-question.svg" %}"></p>
+      </div> 
+    {% endcomment %}
    </div>
    
  </div>
@@ -66,7 +62,7 @@
         function () {$("#randomInsult").css("opacity", "0"); });  });
 
 
-function showInsult() {
+fun ction showInsult() {
      var comment = comments[Math.floor(Math.random() * 25)];
   // var randomInsult = "Your " + randomBodyPart + " is " + randomAdjective + " " + randomWord;
      var randomInsult = comment;
@@ -130,4 +126,5 @@ console.log("here")
 
 
 
-</script>{% endblock %}
+</script>
+{% endblock %}
