@@ -6,18 +6,35 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
     <link rel="stylesheet" href="{% static 'css/forum.css' %}">
+{% endblock %}
 
+{% block css %}
+<style>
+  @media only screen and (max-width: 992px) {
+    .about-dhairya{
+      display: none !important;
+    }
+    #facebook{
+      margin-left: 50%;
+    } 
+    .forum{
+      margin-right: 0;
+    }
+    ._2p3a{
+      
+    }
+    }	</style>
 {% endblock %}
 
 {% block content %}
 <div class="container" style="color: white;">
 <div class="d-flex flex-row" style="margin-top: 10%;">
-   <div class="row" style="margin-right: ;height: 300px">
+   <div class="row" style="margin-right: 8%;height: 350px">
       <h1>Hence</h1>
       <iframe class="forum" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FSARC.IITB%2F&tabs=events&width=500&height=300&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="550" height="700" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media">
       </iframe>
     </div>
-    <div class="row d-flex flex-column" style="color: white; margin-left: %;">
+    <div class="row d-flex flex-column about-dhairya" style="color: white; margin-left: %;">
       <h1 class="row">About Us</h1>
       <h4 class="row">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio omnis itaque, vitae cupiditate adipisci eos ullam ex animi consequuntur obcaecati accusantium, error sint id! Officia et optio pariatur rerum vitae.</h4>
     </div>
