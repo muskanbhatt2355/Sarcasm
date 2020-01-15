@@ -51,6 +51,7 @@ audio{
 	margin-top:100;
 }
 input{
+	color:#fff;
 	background-color: #000;
 	height: 55px;
 }
@@ -67,9 +68,9 @@ form{
 .submitButton{
 	width: 25%;
 	margin: auto;
-	margin-top: 10px;
-	padding-bottom: 5px;
-	margin-bottom: 30px;
+	margin-top: 40px;
+	/* padding-bottom: 5px; */
+	/* margin-bottom: 3px; */
 }
 .questionMedia img{
 	height: 200px;

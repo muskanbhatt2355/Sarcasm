@@ -2,28 +2,16 @@
 {% load static %}
 {% block content %}
 
-<div class="background-img" style="background-image: url({% static 'images/sarcasm.svg' %}) !important;"></div>
-<div class="row">
-	<div class="col-md-12 buttons">
-        <!-- a href="{% url 'logout' %}"> <button class="btn btn-outline-info" type="submit">Logout</button></a -->
-	{% if not user.is_authenticated %}
-
-	 <button class="btn btn-outline-info" type="submit"><a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}">Login with Facebook</a></button>
-	{% endif %}
-	<div class="col-md-8">
- 		<!-- h1>A warm WELCOME TO SARCASM {{user}}</h1 -->
-	{% if user.is_authenticated %}
-	</div>
-	</div>
+<div class="background-img" style="background-image: url({% static 'images/sarcasmLogo.svg' %}) !important;"></div>
 	<div class="row">
-	<div class="col-md-12 buttons">	
-	<!-- a href="{% url 'logout' %}"> <button class="btn btn-outline-info" type="submit">Logout</button></a -->
-	<a href="{% url 'play' %}"> <button class="btn btn-outline-info" type="submit">Let's play</button></a>
-</div>
+	{% if not user.is_authenticated %}
+		<button class="buttons btn btn-outline-info" type="submit"><a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}">Login with Facebook</a></button>
+	</div>
 	{% else %}
-<!-- 	<a href="{% url 'play' %}"> <button class="btn btn-outline-info" type="submit">Login</button></a>
- 	              <button class="btn btn-outline-info" type="submit"><a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}">Continue with Facebook</a></button>
--->
-	</div>	
+		
+	<div class="row">
+			<a href="{% url 'play' %}"> <button class="button btn btn-outline-info" type="submit">Let's play</button></a>
+	</div>
 	{% endif %}
+	
 {% endblock %}	

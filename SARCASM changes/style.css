@@ -38,7 +38,7 @@
 
 body{
 	background-color: black;
-	/* overflow-x:hidden; */
+	overflow-x:hidden;
 	font-family: Gilroy-ExtraBold;
 }
 
@@ -118,12 +118,12 @@ a{
 }
 
 #aluminationLogo {
-	/* position: relative;
-	display: block; */
+	position: relative;
+	display: block;
 	width: 40%;
-	/* top: 25%; */
-	/* margin-left: auto;
-	margin-right: auto; */
+	top: 25%;
+	margin-left: auto;
+	margin-right: auto;
 }
 #aluminationLogo-overlay {
 	position: relative;
@@ -134,8 +134,10 @@ a{
 	margin-right: auto;
 }
 
-#mark{
-	width: 60px;
+#mark {
+	position: relative;
+	top: 30%;
+	width: 63%;
 }
 
 #overlayImage {
@@ -190,13 +192,13 @@ a{
   }*/
 
   #aluminationLogo {
-	  /* z-index: 2; */
-	/* position: absolute; */
-	/* display: block; */
-	width: 240px;
-	/* top: 2% !important; */
-	/* left: 20vw; */
-	/* margin-left: auto; */
+	  z-index: 2;
+	position: absolute;
+	display: block;
+	width: 45vw;
+	top: 2% !important;
+	left: 20vw;
+	margin-right: auto;
 	}
 
   .hamburger {
@@ -332,8 +334,9 @@ a{
 }
 
 .footer {
-	width: 100%																				;
-	margin-top: 10%;	
+	
+	position:relative;
+	/*transform: translate(77.5%, 1269%);*/
 }
 
 .footer img {
@@ -399,5 +402,7 @@ a{
 	opacity: 1;
 	color: white;
 }
-
+.footer img{
+	display: none;
+}
 }

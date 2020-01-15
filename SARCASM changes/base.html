@@ -1,0 +1,179 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>	
+	<!-- Set Title -->
+	<title>SARCasm</title>
+
+	<!-- Required Meta Tags -->
+	<meta property="og:title" content="SARCasm" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://sarcasm.sarc-iitb.org" />
+	<meta property="og:image" content="https://sarcasm.sarc-iitb.org{%static 'images/thumbnail.jpg' %}" />
+	<meta property="og:description" content="Sarcasm. Insti's online crypt hunt." />
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	
+    
+	<link rel="shortcut icon" href="{%static 'images/fav1.png'%}" />
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" href="{% static 'css/base_ham.css' %}">
+
+	{% block head %}
+	{% endblock %}
+	{%block css%}
+	{% endblock %}
+	
+	</head>
+<body>
+	<!-- Desktop Navbar -->	
+	<div class="navbar-container container" id="navbarVSV">
+		<ul class="nav">
+			<li class="nav-item">
+				<a href="{% url 'game-home' %}" class="nav-link active-link">Home
+				</a>
+				<div class="underline"></div>
+			</li>
+			<li class="nav-item">
+				<a href="{% url 'instructions' %}" class="nav-link">Rules</a>
+				<div class="underline"></div>
+			</li>
+			<li class="nav-item">
+				<a href="{% url 'leaderboard' %}" class="nav-link">Leaderboard</a>
+				<div class="underline"></div>
+			</li>
+			<li class="nav-item">
+				<a href="{% url 'game-home' %}" class="nav-link"><img src="{% static 'img/base/mark.svg' %}" id="mark"></a>
+			</li>
+			<li class="nav-item">
+				<a href="{% url 'forum' %}" class="nav-link">Forum</a>
+				<div class="underline"></div>
+			</li>
+			<li class="nav-item">
+				<a href="{% url 'prize' %}" class="nav-link">Prizes</a>
+				<div class="underline"></div>
+			</li>
+			<li class="nav-item">
+				<a href="{% url 'bonus' %}" class="nav-link">Bonus</a>
+				<div class="underline"></div>
+			</li>
+		</ul>
+	</div>
+
+	<!-- Hamburger -->
+	<div class="hamburger hamburger--emphatic" id="hamburgerVivek">
+    	<div class="hamburger-box">
+      		<div class="hamburger-inner"></div>
+    	</div>
+  	</div>
+
+  	<!-- Side Navbar Overlay -->
+  	<div class="overlay navbar-container">
+  		<ul id="listVSV">
+	<!-- <img src="{% static 'img/base/alumination logo.svg' %}" id="aluminationLogo-overlay"></a> -->
+  			<li class="nav-link active-link">
+				<a href="{% url 'game-home' %}">Home</a>
+				<div class="underline"></div>
+			</li>
+			<li class="nav-link">
+				<a href="{% url 'instructions' %}">Rules</a>
+				<div class="underline"></div>
+			</li>
+			<li class="nav-link">
+				<a href="{% url 'leaderboard' %}">Leaderboard</a>
+				<div class="underline"></div>
+			</li>
+			<li class="nav-link">
+				<a href="{% url 'forum' %}">Forum</a>
+				<div class="underline"></div>
+			</li>
+			<li class="nav-link">
+				<a href="{% url 'contacts' %}">Help</a>
+				<div class="underline"></div>
+			</li>
+			<li class="nav-link">
+				<a href="{% url 'prize' %}">Prizes</a>
+				<div class="underline"></div>
+			</li>
+			<li class="nav-link">
+				<a href="{% url 'bonus' %}">Bonus</a>
+				<div class="underline"></div>
+			</li>
+  		</ul>
+  		<!--<img src="{% static 'img/base/gate.svg' %}" id="overlayImage">-->
+  	</div>
+
+  	<!-- Navbar centre logo -->
+	<a href="{% url 'game-home' %}">
+	<img src="{% static 'img/base/alumination logo.svg' %}" id="aluminationLogo"></a>
+	</div>
+
+	<!-- Footer -->
+	
+	<div class="footer vivek container">
+		<div class="row">
+		  	<div class="col-sm-4">
+		  		<a href="https://www.facebook.com/SARC.IITB/" target="_blank">
+					{% load static %}
+					<img src="{% static "images/fb.svg" %}"></a>
+				<a href="https://in.linkedin.com/in/sarciitb" target="_blank"><img src="{% static "images/linkedin-sign.svg" %}"></a>
+				<a href="https://www.youtube.com/user/SARCIIT" target="_blank"><img src="{% static "images/youtube.svg" %}"></a>
+		  	</div>
+		  	<div class="col-sm-4" style="text-align: center; color: white"><!-- SARC Logo -->SARC</div>
+		  	<div class="col-sm-4" style="text-align: right; color: white">Help</div>
+	  	</div>
+  </div>
+
+	<div>
+		{% if messages %}
+			{% for message in messages %}
+				<div class="alert alert-{{message.tags}}">
+					{{message}}
+				</div>
+			{% endfor %}
+		{% endif %}		
+	</div>
+	{% block content%}
+
+	{% endblock %}
+
+	
+	<!-- Optional JavaScript -->
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123803318-2"></script>
+	<script>
+  	window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-123803318-2');
+	</script>
+
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="{% static 'js/base.js' %}"></script>
+	<script>
+
+    var forEach=function(t,o,r){if("[object Object]"===Object.prototype.toString.call(t))for(var c in t)Object.prototype.hasOwnProperty.call(t,c)&&o.call(r,t[c],c,t);else for(var e=0,l=t.length;l>e;e++)o.call(r,t[e],e,t)};
+
+    var hamburgers = document.querySelectorAll(".hamburger");
+    if (hamburgers.length > 0) {
+      forEach(hamburgers, function(hamburger) {
+        hamburger.addEventListener("click", function() {
+          this.classList.toggle("is-active");
+        }, false);
+      });
+    }
+  </script>
+</body>
+{% block post %}{% endblock %}
+</html>
+
+

@@ -1,9 +1,7 @@
 {% extends 'game/base.html' %}
 {% load staticfiles %}
-{% block head %}
+{% block css %}
     <link rel="stylesheet" href="{% static 'css/play.css' %}">
-<!--     <script src="{% static 'js/comm.js' %}" ></script>-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
  {% endblock %}
 
 {% block content %}
@@ -12,12 +10,13 @@
  		<a href="{% url 'logout' %}"> <button class="btn btn-outline-info" type="submit">Logout</button></a> -->
  <div class="container">
    <div class="questionContainer d-flex flex-column">
-        <div class="row">
+        <div class="row ml-auto">
             <p id="TimerVivek" style = "font-size: 35px;"></p>
         </div>
         <div class="questionDetails">
-          <div class="row questionumber">Bonus Question</div>
-          
+          <div class="row questionumber"> 
+              <img src="{% static 'images/Bonus.svg' %}" style="height: 60px;" alt=""> 
+          </div>
         </div>
         <div class="row questionontent">
           {% if question is not None%}<div class="sub-ttle" id="bonusQuestionText"> {{ question }} </div>{% endif %}
