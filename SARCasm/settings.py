@@ -20,7 +20,7 @@ STATIC_DIR = os.path.join(BASE_DIR,'nginx/static')
 SECRET_KEY = '#&&*vy%5w*&7vnrga=9m44a7=4+1%*&3z*envjglrt@_yqm_ih'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['localhost','sarcasm.sarc-iitb.org','*']
 

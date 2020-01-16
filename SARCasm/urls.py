@@ -25,6 +25,11 @@ from django.urls import path, include
 from users import views as user_views
 import users.urls
 import social_django.urls
+from django.conf.urls import handler404, handler500
+
+handler400 = 'game.views.handler404'
+handler500 = 'game.views.handler500'
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
