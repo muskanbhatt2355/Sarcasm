@@ -1,29 +1,30 @@
 {% extends 'game/base.html' %}
 {% load static %}
 
-{% block css %}
+{% block head %}
     <link rel="stylesheet" href="{% static 'css/prizes.css' %}">
 {% endblock %}
 
 {% block content %}
-<div class="container">
-  <h1 class="display-1">Prizes</h1>
-    <div class="cardContainer d-flex flex-column">
-      <div class="d-flex flex-row row A">
-        <div class="card col-lg-3 col-md-6 col-sm-12"> <img class="cardImage" src="{% static 'images/mi-band.svg' %}"><div class="intext">Mi-Band</div></div>
-        <div class="card col-lg-3 col-md-6 col-sm-12"><img class="cardImage" src="{% static 'images/head.svg' %}"><div class="intext">JBL Headphones</div></div>
-        <div class="card col-lg-3 col-md-6 col-sm-12"><img class="cardImage" src="{% static 'images/char.svg' %}"><div class="intext">Power Bank</div></div>
-      </div>
-      <div class="d-flex flex-row row B">
-        <div class="card col-lg-3 col-md-6 col-sm-12"><img class="cardImage" src="{% static 'images/wifi.svg' %}"><div class="intext">Wifi Router</div></div>
-        <div class="card col-lg-3 col-md-6 col-sm-12"><img class="cardImage" src="{% static 'images/pen.svg' %}"><div class="intext">Pendrive</div></div>
-        <div class="card col-lg-3 col-md-6 col-sm-12"><img class="cardImage" src="{% static 'images/spea.svg' %}"><div class="intext">JBL Speakers</div></div>
-      </div>
-    </div>
-{% comment %} 
-    <div class="imgContainer">
 
-      <img src="{% static "images/mario.svg" %}" id="mario">
-    </div> {% endcomment %}
+<div class="d-flex flex-wrap justify-content-around " style="width: 63%; margin: auto;">
+    <div class="row card col-lg-3"><img src="{% static 'images/Asset 12.svg' %}"></div>
+    <div class="row card col-lg-3"><img src="{% static 'images/Asset 12.svg' %}" ></div>
+    <div class="row card col-lg-3"><img src="{% static 'images/Asset 12.svg' %}"></div>  
+    <div class="row card col-lg-3"><img src="{% static 'images/Asset 12.svg' %}" ></div>
+    <div class="row card col-lg-3"><img src="{% static 'images/Asset 12.svg' %}" ></div>
+    <div class="row card col-lg-3"><img src="{% static 'images/Asset 12.svg' %}" ></div>
+    <div class="row card col-lg-3"><img src="{% static 'images/Asset 12.svg' %}" ></div>
+    <div class="row card col-lg-3"><img src="{% static 'images/Asset 12.svg' %}" ></div>
+    <!-- <div class="row card col-lg-3"><img src="{% static 'images/Asset 12.svg' %}" ></div> -->
   </div>
+
+<!-- <div class="row">
+    <div class="col-xs-8 col-xs-offset-3 col-sm-4 col-sm-offset-3 col-md-3 col-md-offset-2 col-lg-2 col-lg-offset-3 card"><img src="{% static 'images/prize.svg' %}"></div>
+    <div class="col-xs-8 col-xs-offset-3 col-sm-4 col-sm-offset-1 col-md-3 col-md-offset-1 col-lg-2 col-lg-offset-0 card"><img src="{% static 'images/prize.svg' %}" ></div>
+    <div class="col-xs-8 col-xs-offset-3 col-sm-4 col-sm-offset-3 col-md-3 col-md-offset-1 col-lg-2  col-lg-offset-0 card"><img src="{% static 'images/prize.svg' %}"></div>
+    <div class="col-xs-8 col-xs-offset-3 col-sm-4 col-sm-offset-1 col-md-3 col-md-offset-2 col-lg-2 col-lg-offset-3 card"><img src="{% static 'images/prize.svg' %}" ></div>
+    <div class="col-xs-8 col-xs-offset-3 col-sm-4 col-sm-offset-3 col-md-3 col-md-offset-1 col-lg-2 col-lg-offset-0 card"><img src="{% static 'images/prize.svg' %}" ></div>
+    <div class="col-xs-8 col-xs-offset-3 col-sm-4 col-sm-offset-1 col-md-3 col-md-offset-1 col-lg-2 col-lg-offset-0 card"><img src="{% static 'images/prize.svg' %}" ></div>
+  </div> -->
 {% endblock %}

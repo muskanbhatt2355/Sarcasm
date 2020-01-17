@@ -2,39 +2,45 @@
 {% load static %}
 {% block css %}
 <style>
-	html{
-		min-height: 100%;
-	}
-	.footer-dhairya{
-		position: absolute;
-		bottom: 0px;
-	}
-	#sarcasmLogo{
-		width: 50%; 
-		margin: 11% 0 6% 0;
-	}
-	.d1{
-		height: inherit; 
-		margin-bottom: 2%;
-	}
-	.b1{
-		height: 72px; 
-		width: auto; 
-		font-size: 30px;
-	}
-	#aluminationLogo{
-			display: none;
-		}
-	
-	@media only screen and (max-width: 750px){
-		#sarcasmLogo{
-			width: 80%;
-			display: inline;
-			vertical-align: super;
-			margin: 40% 0 6% 0;
-		}
-		
-	}
+    html{
+        min-height: 100%;
+    }
+    .footer-dhairya{
+        position: absolute;
+        bottom: 0px;
+    }
+    #sarcasmLogo{
+        width: 50%; 
+        margin: 5% 0 6% 0;
+    }
+    .d1{
+        height: inherit; 
+        margin-bottom: 2%;
+    }
+    .b1{
+        height: 72px; 
+        width: auto; 
+        font-size: 30px;
+    }
+    #aluminationLogo{
+            display: none;
+        }
+    .footer {
+        margin-top: 5%;
+    }
+    .letsPlayButton:hover {
+        color: black;
+
+    }
+    @media only screen and (max-width: 750px){
+        #sarcasmLogo{
+            width: 80%;
+            display: inline;
+            vertical-align: super;
+            margin: 40% 0 6% 0;
+        }
+        
+    }
 
 </style>
 
@@ -45,19 +51,19 @@
 {% block content %}
 <!-- HOME AREA -->
 <div class="d-flex flex-column">
-	<div class="row justify-content-around">
-		<img src="{% static 'images/sarcasmLogo.svg' %}" id="sarcasmLogo" alt="">
-	</div>
-	{% if not user.is_authenticated %}
-	<div class="row justify-content-around d1">
-		<a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}"><button class="b1" type="submit">Login with Facebook</button></a>
-	</div>
-	{% else %}
-		
-	<div class="row justify-content-around d1">
-			<a href="{% url 'play' %}"> <button class="b1" type="submit">Let's play</button></a>
-	</div>
-	{% endif %}
+    <div class="row justify-content-around">
+        <img src="{% static 'images/sarcasmLogo.svg' %}" id="sarcasmLogo" alt="">
+    </div>
+    {% if not user.is_authenticated %}
+    <div class="row justify-content-around d1">
+        <a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}"><button class="b1" type="submit">Login with Facebook</button></a>
+    </div>
+    {% else %}
+        
+    <div class="row justify-content-around d1">
+            <a class="letsPlayButton" href="{% url 'play' %}"> <button class="b1" type="submit">Let's play</button></a>
+    </div>
+    {% endif %}
 </div>
 <!-- END HOME -->
-{% endblock %}	
+{% endblock %}  

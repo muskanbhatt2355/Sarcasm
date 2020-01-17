@@ -51,13 +51,15 @@ audio{
 	margin-top:100;
 }
 input{
-	color:#fff;
 	background-color: #000;
 	height: 55px;
 }
 #id_answer{
 	margin-left: auto;
-	width: 100%;
+	margin-right: auto;
+	width: 85%;
+	color: white;
+	text-align: center;	
 }
 form{
 	width: 70%;
@@ -68,9 +70,9 @@ form{
 .submitButton{
 	width: 25%;
 	margin: auto;
-	margin-top: 40px;
-	/* padding-bottom: 5px; */
-	/* margin-bottom: 3px; */
+	margin-top: 10px;
+	padding-bottom: 5px;
+	margin-bottom: 30px;
 }
 .questionMedia img{
 	height: 200px;
@@ -100,4 +102,12 @@ font-size:60px;
 .sub-ttle{
 font-size:25px;
 }
+.footer {
+	margin-top: 5%;
+}
 
+@media only screen and (max-width: 450px) {
+	.footer {
+		margin-top: 15%;
+	}
+}

@@ -22,7 +22,7 @@
             </div>
           {% endif %}
         </div>
-        <div class="row questionontent">
+        <div class="row questionontent" style="width: 75%;">
           {% if level.question is not None%}<div class="sub-ttle">{{level.question}}</div>{% endif %}
         </div>  
         <div class="row questionMedia card-img">
@@ -30,7 +30,7 @@
           {% if level.audiofile.url is not None %}<audio controls><source src={{level.audiofile.url}} type="audio/mpeg">
 	                              Your browser does not support the audio tag</audio>
 	        {% endif %}
-        	{% if level.videofile.url is not None %} <video width="auto" height= "250" controls><source src={{level.videofile.url}} type="video/mp4">
+        	{% if level.videofile.url is not None %} <video width="auto" height= "150" controls><source src={{level.videofile.url}} type="video/mp4">
             Your Browser does not support the video tag
                                   </video>
 	        {% endif %}
@@ -38,7 +38,7 @@
         <div class="row">
           <form class="d-flex flex-column" method="POST" action="" id="answer"> {% csrf_token %} 
             {{form}}  
-          <input  type="submit" value="submit" name="" class="submitButton row">
+          <input  type="submit" value="Submit" name="" class="submitButton row" style="color: white; width: auto;">
           </form>
         </div>
        

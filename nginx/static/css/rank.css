@@ -1,13 +1,15 @@
 body{
 	background-color: black;
+	background-image: url("../images/astronaut.png");
+	background-size: cover;
 }
 #head{
 		color:white;
 		text-align: left;	
-		font-size: 6em;
+		font-size: 2.5em;
 }
 .leaderboard{
-	margin-top: 50px;
+	/*margin-top: 50px;*/
 	margin-left: 10%;
 	width: 100%	;
 }
@@ -19,9 +21,9 @@ body{
 	overflow-y: scroll;
 }
 .tables {
-	font-size: 2em;
+	font-size: 1em;
 	color: white;
-	padding: 50px;
+	/*padding-top: 50px;*/
 	/* background-color: red; */
 	border-collapse: separate;
 	border-spacing: 10px;
@@ -37,14 +39,17 @@ tr td:nth-child(4n){
 }
 
 tr td:nth-child(4n-1){
-	width: 30%;
+	width: 10%;
 }
 
 tr td:nth-child(4n-2){
-	width: 20%;
+	width: 75%;
+}
+tr td:nth-child(4n-3){
+	width: 5%;
 }
 img{
-	width: 40px; 
+	width: 20px; 
 }
 .ba{
 	margin-left: 40%;
@@ -59,38 +64,77 @@ img{
 	height: 3px !important;
 }
 
+#leaderboardTable {
+	margin-bottom: 5%;
+	max-width: 55%;
+	margin-top: 30px;
+}
+#playerScore {
+	color: white;
+	font-size: 1.5em;
+	margin-left: 15%;
+}
+#playerScore img {
+	margin-left: 40px;
+}
 
-/* MEDIA RULES */
-@media only screen and (max-width: 1400px){
-	body{font-size: 70%;}
-	/* img{
-		width: 500px;
-	} */
-}
-/* 
-@media only screen and (max-width: 991px){
-	#head{}
-body{
-	font-size: 70%;
+/*----------------------Media Rules--------------------*/
+
+@media only screen and (max-width:380px){
+	body{
+		font-size: 40%;
+	}
 }
 
-.leaderboard{
-	margin-left: 100px;
+@media only screen and (max-width:460px){
+	body{
+		font-size: 50%;
+	}
+	img{
+		width: 20px;
+	}
+	.leaderboard{
+		margin-top: 10px;
+		/*margin-left: -1%;*/
+		width: 100%	;
+		padding-right: 0%;
+		overflow-x: hidden;
+	}
+	tr td:nth-child(3n){
+		width: 70%;
+		margin-right: 100px;
+		margin-left: -40px;
+	}
+
+	tr td:nth-child(3n-1){
+		width: 10%;
+	}
+	.table-div{
+		/*margin-left: -4%;*/
+		/* overflow-x: hidden; */
+		width: 110%;
+	}
+	.tables{
+		padding-right: 0%;
+		margin-left: 0;
+		margin-right: 0%;
+	}
+	#leaderboardTable {
+		max-width: 90%;
+		margin-top: 5px;
+	}
+
 }
-.tables{
-	padding: 20px;
-	width: 100%;
+
+@media only screen and (max-width:680px){
+	body{
+		font-size: 60%;
+	}
+	.table-div{
+		margin-left: 1%;
+		width: 100%;
+	}
 }
-td, tr{
-	max-width: 60%;
-}
-.table-div{
-	margin-left: 1%;
-}
-img{
-	display: none;
-}
-} */
 
 @media only screen and (max-width: 991px){
 	#head{
@@ -116,72 +160,15 @@ img{
 		display: none;
 	} */
 	}
-/* 
-@media only screen and (max-width:750px){
-	body{
-		font-size: 60%;
+
+	#playerScore {
+		/*text-align: center;*/
 	}
-	.table-div{
-		margin-left: 15%;
-		width: 70%;
-	}
-	tr td:nth-child(3n){
-		width: 25%;
-	}
-	
-	tr td:nth-child(3n-1){
-		width: 50%;
-	}
-	tr td:nth-child(3n-2){
-		width: 25%;
-	}
-} */
-@media only screen and (max-width:680px){
-	body{
-		font-size: 60%;
-	}
-	.table-div{
-		margin-left: 1%;
-		width: 100%;
-	}
+
+
+@media only screen and (max-width: 1400px){
+	body{font-size: 70%;}
+	/* img{
+		width: 500px;
+	} */
 }
-
-@media only screen and (max-width:460px){
-	body{
-		font-size: 50%;
-	}
-	img{
-		width: 20px;
-	}
-	.leaderboard{
-		margin-top: 10px;
-		margin-left: -1%;
-		width: 100%	;
-		padding-right: 0%;
-		overflow-x: hidden;
-	}
-	tr td:nth-child(3n){
-		width: 70%;
-		margin-right: 100px;
-		margin-left: -40px;
-	}
-
-	tr td:nth-child(3n-1){
-		width: 10%;
-	}
-	.table-div{
-		margin-left: -4%;
-		/* overflow-x: hidden; */
-		width: 110%;
-	}
-	.tables{
-		padding-right: 0%;
-		margin-left: 0;
-		margin-right: 0%;
-	}
-
-}
-@media only screen and (max-width:380px){
-	body{
-		font-size: 40%;
-	}}

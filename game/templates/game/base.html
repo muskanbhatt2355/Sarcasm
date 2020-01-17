@@ -45,7 +45,10 @@
 				<div class="underline"></div>
 			</li>
 			<li class="nav-item">
+				{% if user.is_authenticated %}
 				<a href="{% url 'game-home' %}" class="nav-link"><img src="{% static 'images/sarcasmCircle.svg' %}" id="mark"></a>
+				{% endif %}
+				
 			</li>
 			<li class="nav-item">
 				<a href="{% url 'forum' %}" class="nav-link">Forum</a>
@@ -56,7 +59,11 @@
 				<div class="underline"></div>
 			</li>
 			<li class="nav-item">
+				{% if user.is_authenticated %}
 				<a href="{% url 'bonus' %}" class="nav-link">Bonus</a>
+				{% elif not user.is_authenticated  %}
+				<a href="{% url 'game-home' %}" class="nav-link">Bonus</a>
+				{% endif %}
 				<div class="underline"></div>
 			</li>
 		</ul>
@@ -106,8 +113,9 @@
   	</div>
 
   	<!-- Navbar centre logo -->
-	<a href="{% url 'game-home' %}">
-	<img src="{% static 'images/sarcasmLogo.svg' %}" id="aluminationLogo"></a>
+  	<div id="sarcasmLogo">
+		<a href="{% url 'play' %}">
+		<img src="{% static 'images/sarcasmLogo.svg' %}" id="aluminationLogo"></a>
 	</div>
 
 	{% block content%}
@@ -117,15 +125,15 @@
 	<!-- Footer -->
 	
 	<div class="footer footer-dhairya d-flex justify-content-around">
-		  	<div class="row">
+		  	<div class="row" id="mediaIcons">
 		  		<a href="https://www.facebook.com/SARC.IITB/" target="_blank">
 					{% load static %}
-					<img src="{% static "images/fb.svg" %}"></a>
-				<a href="https://in.linkedin.com/in/sarciitb" target="_blank"><img src="{% static "images/linkedin-sign.svg" %}"></a>
+					<img src="{% static "images/facebook.svg" %}"></a>
+				<a href="https://in.linkedin.com/in/sarciitb" target="_blank"><img src="{% static "images/linkedin.svg" %}"></a>
 				<a href="https://www.youtube.com/user/SARCIIT" target="_blank"><img src="{% static "images/youtube.svg" %}"></a>
 		  	</div>
-		  	<div class="row" style="color: white; margin-left:-6.5%"><!-- SARC Logo -->SARC</div>
-		  	<div class="row" style="color: white">Help</div>  	
+		  	<div class="col-sm-4" style="color: white"><img id="footerLogo" style="position: absolute; margin-right: auto; margin-left: 15%;" src="{% static "images/WhiteSARC.svg" %}"></div>
+		  	<div class="row" style="color: white" id="helpLink"><a href="{% url 'contacts' %}">Help</a></div>  	
   	</div>
 
 	<div>

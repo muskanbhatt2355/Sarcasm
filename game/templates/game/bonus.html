@@ -2,20 +2,34 @@
 {% load staticfiles %}
 {% block css %}
     <link rel="stylesheet" href="{% static 'css/play.css' %}">
+    <style type="text/css">
+    body{
+      background-image: url("{% static 'images/rocket.png' %}");
+      background-size: cover;
+    }
+      #star {
+        height: 60px;
+      }
+      @media only screen and (max-width: 450px) {
+        #star{
+          height: 40px;
+        }
+      }
+    </style>
  {% endblock %}
 
 {% block content %}
 
-<!-- 	<h1>Congratulations! You have logged in. Let's play now</h1>
- 		<a href="{% url 'logout' %}"> <button class="btn btn-outline-info" type="submit">Logout</button></a> -->
+<!--  <h1>Congratulations! You have logged in. Let's play now</h1>
+    <a href="{% url 'logout' %}"> <button class="btn btn-outline-info" type="submit">Logout</button></a> -->
  <div class="container">
    <div class="questionContainer d-flex flex-column">
-        <div class="row ml-auto">
+        <div class="row ml-auto" style="margin-right: auto; ">
             <p id="TimerVivek" style = "font-size: 35px;"></p>
         </div>
         <div class="questionDetails">
           <div class="row questionumber"> 
-              <img src="{% static 'images/Bonus.svg' %}" style="height: 60px;" alt=""> 
+              <img src="{% static 'images/Bonus.svg' %}" id="star" alt=""> 
           </div>
         </div>
         <div class="row questionontent">
@@ -27,19 +41,19 @@
           {% endif %}
           {% if level.audiofile.url is not None %}
            <audio controls id="bonusQuestionAudio"><source src={{level.audiofile.url}} type="audio/mpeg">
-  	                  Your browser does not support the audio tag.
-  	       </audio>
-	       {% endif %}
-	       {% if level.videofile.url is not None %} 
+                      Your browser does not support the audio tag.
+           </audio>
+         {% endif %}
+         {% if level.videofile.url is not None %} 
            <video width="auto" height= "150" controls id="bonusQuestionVideo"><source src={{level.videofile.url}} type="video/mp4">
           Your Browser does not support the video tag
           </video>
-	      {% endif %}
+        {% endif %}
         </div>
         <div class="row">
           <form class="d-flex flex-column" method="POST" action="" id="answer"> {% csrf_token %} {{form}}  
 
-          <input type="submit" value="submit" name="" class="submitButton row">
+          <input type="submit" value="Submit" name="" class="submitButton row" style="color: white; width: auto;">
           </form>
         </div>
        </div>
@@ -74,14 +88,15 @@ var exp_hour = "{{ hour}}";
 var exp_minute = "{{ minute }}";
 var exp_second = "{{ second }}";
 var expiry = exp_date + ' ' + exp_hour + ':' + exp_minute + ':' + exp_second;
-console.log({{ year }},{{ month }},{{ day }},{{ hour }},{{ minute }},{{ second }},0);
-var countDownDate = new Date({{ year }}, {{ month }}, {{ day }}, {{ hour }}, {{ minute }}, {{ second }}, 0).getTime() - (31*24*60*60*1000);
-
+// console.log({{ year }},{{ month }},{{ day }},{{ hour }},{{ minute }},{{ second }},0);
+var countDownDate = new Date(Date.UTC({{ year }}, {{ month }}, {{ day }}, {{ hour }}, {{ minute }}, {{ second }}, 0)).getTime() - (31*24*60*60*1000);
+// console.log(countDownDate);
 // Update the count down every 1 second
 var x = setInterval(function() {
 
   // Get today's date and time
   var now = new Date().getTime();
+  // console.log(now)
 
   // Find the distance between now and the count down date
   var distance = countDownDate - now;
@@ -94,7 +109,7 @@ var x = setInterval(function() {
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
     
   // Output the result in an element with id="TimerVivek"
-  document.getElementById("TimerVivek").innerHTML = days + "d " + hours + "h "
+  document.getElementById("TimerVivek").innerHTML = hours + "h "
   + minutes + "m " + seconds + "s ";
     
   // If the count down is over, write some text 

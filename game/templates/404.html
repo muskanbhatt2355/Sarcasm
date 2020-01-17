@@ -1,0 +1,23 @@
+{% extends 'game/base.html' %}
+{% load static %}
+{% block css %}
+    <style>
+        body{
+            background-color: black;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-3">Error 404 Not Found</h1>
+        <p class="lead">Oops! You Landed on a place where we didn't work</p>
+        <hr class="my-2">
+        <!-- <!-- <p>More info</p> --> -->
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="{% url 'game-home' %}" role="button">Click here to go back Home</a>
+        </p>
+    </div>
+</div>
+{% endblock content %}

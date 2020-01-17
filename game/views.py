@@ -90,18 +90,24 @@ class Bonus(View) :
 		try:
 			bonus_level = BonusQuestion.objects.get(level_id=cur_user.player.bonus_level_id)
 			livedatetime=bonus_level.live_date
+			# print("live date ", livedatetime)
 			current_time=timezone.now()
+			# print("current time ",current_time)
 			expdatetime = bonus_level.expiration_date
+			# print("expiry date ",expdatetime)
 			expired = bonus_level.expiration_date < current_time
 			if expired:
+				# print("The question has expired")
 				bonus_array = BonusQuestion.objects.filter(level_id__gt=cur_user.player.bonus_level_id)
+				# print(bonus_array)
 				for q in bonus_array:
 					if q.live_date < current_time and current_time<q.expiration_date:
 						cur_user.player.bonus_level_id = q.level_id
+						# print("The bonus id is ",cur_user.player.bonus_level_id)
 						bonus_level = BonusQuestion.objects.get(level_id=cur_user.player.bonus_level_id)
 						cur_user.player.save()
 
-			if livedatetime>current_time:
+			if bonus_level.expiration_date<timezone.now():
 				print("Question {0} not live".format(bonus_level.level_id))
 				raise
 		except:

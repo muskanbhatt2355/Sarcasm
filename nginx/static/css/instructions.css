@@ -1,13 +1,16 @@
-	.content{
-		background-color: #ff0000;
-		border-radius: 25px;
+body{
+	background-image: url("../images/spacesship.png");
+	background-size: cover;
+}
+.content{
+	border-radius: 25px;
 		font-size: 1em;
 		color: white;
-		padding-left: 5%;
+		/*padding-left: 5%;*/
 		padding-top:2%;
 padding-bottom:3%;
-		box-shadow: 0 20px 20px -5px  #ff6666;
-		margin-bottom:10%;
+/*		box-shadow: 0 20px 20px -5px  #ff6666;*/
+		/*margin-bottom:10%;*/
 	}
 	.imagearea img{
 		height: 60vh;
@@ -15,10 +18,11 @@ padding-bottom:3%;
 		width: auto;
 	}
 	#head{
-		color: red;
+		color: white;
+		margin-left: 3%;
 	}
-	.container{
-		margin-left: 15%!important;
+	.container-inst{
+		margin-left: 8%!important;
 	}
 	body{
 		overflow-x: hidden;
@@ -27,7 +31,7 @@ padding-bottom:3%;
 	.imagearea{
 		display: none;
 	}
-	.container{
+	.container-inst{
 		margin-left: 8%!important;
 		margin-right: 8%!important;
 	}
@@ -46,3 +50,6 @@ padding-bottom:3%;
 	text-align:center;}	
 }
 
+/*.footer{
+	transform: translate(4%,1027%)!important
+}*/

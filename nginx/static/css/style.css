@@ -6,6 +6,10 @@
   font-family: Gilroy-Light;
   src: url(Gilroy-Light.otf);
 }
+@font-face {
+	font-family: AkzidenzGrotesk;
+	src: url(AkzidenzGrotesk-MediumExtended.otf);
+}
 
 
 .background-img{
@@ -38,8 +42,8 @@
 
 body{
 	background-color: black;
-	/* overflow-x:hidden; */
-	font-family: Gilroy-ExtraBold;
+	overflow-x:hidden;
+	font-family: AkzidenzGrotesk;
 }
 
 .buttons .btn{
@@ -56,7 +60,7 @@ a{
 	text-align: center;
 	padding: 10px;
 	font-size: 0;
-	color: #335867;
+	color: white;
 }
 
 .navbar-container ul {
@@ -70,14 +74,14 @@ a{
 .navbar-container ul li {
 	display: inline-block;
 	font-size: 1.5rem;
-	margin-left: 35px;
+	/*margin-left: 35px;*/
 }
 
 .navbar-container ul li a {
 	color: white;
 	text-decoration: none;
 	display: inline-block;	
-	padding: 10px;
+	padding: 20px;
 	transition: color 0.5s;
 }
 
@@ -91,7 +95,7 @@ a{
 
 .navbar-container ul li.active-link .underline {
 	width: 100%;
-	background-color: #487F8C;
+	background-color: white;
 }
 
 .navbar-container ul li:hover .underline {
@@ -155,20 +159,7 @@ a{
 }
 
 /*------------- Media Rule for ipad-------------------*/
-@media only screen and (min-width: 1200px) {
-	#listVSV{
-		display: none !important;
-	}
-	
-	#aluminationLogo {
-		display: none !important;
-	}
 
-	#overlayImage {
-		display: none !important;
-	}
-
-}
 @media only screen and (max-width: 1200px) {
   #navbarVSV { 
   	display: none; 
@@ -247,40 +238,9 @@ a{
 	}
 }
 
-/*-----------------Media Rule for phone-----------*/
-@media only screen and (max-width: 450px) {
-	#overlayImage {
-	width: 86%;
-	position: absolute;
-	left: -38%;
-	top: 25vw;
-	}
-
-	.navbar-container ul {
-		width: 80%;
-	}
-
-	.navbar-container ul li.active-link .underline {
-		width: 35%;
-	}
-
-	.navbar-container ul li:hover .underline {
-		width: 35%;
-	}
-
-	.hamburger {
-		right: 0;
-		top: 1%;
-	}
-
-	.nav-link {
-		position: relative;
-		left: 15%;
-	}
-}
-
 #listVSV{
     margin-top: -110px;
+    width: 100%;
 }
 
 /*------------------------------------sdflsfjdsjf--------*/
@@ -332,8 +292,8 @@ a{
 }
 
 .footer {
-	width: 100%																				;
-	margin-top: 10%;	
+	width: 100%;
+	margin-top: 2%;	
 }
 
 .footer img {
@@ -362,6 +322,71 @@ a{
 	font-size: 20px;
 
 }
+
+#footerLogo {
+	display: block;
+	width: 75px;
+}
+
+#aluminationLogo {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+
+/*---------------------Media Rules-----------*/
+
+@media only screen and (max-width: 450px) {
+	#overlayImage {
+	width: 86%;
+	position: absolute;
+	left: -38%;
+	top: 25vw;
+	}
+
+	.navbar-container ul {
+		width: 80%;
+	}
+
+	.navbar-container ul li.active-link .underline {
+		width: 35%;
+	}
+
+	.navbar-container ul li:hover .underline {
+		width: 35%;
+	}
+
+	.hamburger {
+		right: 0;
+		top: 1%;
+	}
+
+	.nav-link {
+		position: relative;
+		/*left: 15%;*/
+	}
+
+	#footerLogo {
+		/*display: none;*/
+		width: 60px;
+	}
+	#helpLink {
+		display: none;
+	}
+	#mediaIcons {
+		display: flex;
+		margin-left: 5%;
+		margin-right: auto;
+		width: 100%;
+	}
+
+	/*.footer {
+		margin-top: 22%;
+	}*/
+}
+
 @media only screen and (max-width: 750px){
 	.navbar{
 		position: fixed;
@@ -392,12 +417,42 @@ a{
             margin-bottom: 1vh; 
             margin-left: 6.0vw;
             margin-right: 6.0vw;
-        }
-
-
-.navbar img:hover + .icons{
-	opacity: 1;
-	color: white;
+    }
+	.navbar img:hover + .icons{
+		opacity: 1;
+		color: white;
+	}
+	.footer img{
+		width: 20px;
+		/*display: none;*/
+	}
+	#footerLogo {
+		/*display: none;*/
+		width: 60px;
+	}
+	#helpLink {
+		display: none;
+	}
+	#mediaIcons {
+		display: flex;
+		margin-left: 5%;
+		margin-right: auto;
+		width: 100%;
+	}
 }
 
+@media only screen and (min-width: 1200px) {
+	#listVSV{
+		display: none !important;
+	}
+	
+	#aluminationLogo {
+		display: none !important;
+	}
+
+	#overlayImage {
+		display: none !important;
+	}
+
 }
+
